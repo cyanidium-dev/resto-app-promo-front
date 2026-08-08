@@ -1,0 +1,762 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens — see docs/TZ.md §5.2
+
+   Direction: "Control room". Depth comes from tone, hairline borders and
+   chamfered geometry — never from soft drop shadows.
+
+   Colour discipline: --accent is the ONLY brand colour and is reserved for
+   primary CTAs and active states. --ok / --warning / --violation carry
+   compliance meaning and must never be used decoratively — otherwise a
+   "Request a demo" button starts reading as a status badge.
+--------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --band: rgb(9 9 11 / 0.028);
+  --surface: #ffffff;
+  --border: #e4e4e7;
+  --border-strong: #d4d4d8;
+
+  --text: #09090b;
+  --text-muted: #52525b;
+  --text-subtle: #71717a;
+
+  --accent: #0e7490;
+  --accent-fg: #ffffff;
+  --accent-hover: #0b5c73;
+  --accent-subtle: rgb(14 116 144 / 0.08);
+
+  --ok: #16a34a;
+  --warning: #d97706;
+  --violation: #dc2626;
+
+  /* Atmosphere. Adapted from the Kondor tech direction but re-hued to the
+     cold-chain cyan and dialled down — a food-safety site must not read as
+     gaming hardware. */
+  --glow-a: rgb(14 116 144 / 0.13);
+  --glow-b: rgb(14 116 144 / 0.07);
+  --grid-line: rgb(9 9 11 / 0.05);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg: #08090a;
+  --band: rgb(255 255 255 / 0.025);
+  --surface: #17181b;
+  --border: #26272b;
+  --border-strong: #3f3f46;
+
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-subtle: #71717a;
+
+  --accent: #22d3ee;
+  --accent-fg: #08090a;
+  --accent-hover: #67e8f9;
+  --accent-subtle: rgb(34 211 238 / 0.1);
+
+  --ok: #4ade80;
+  --warning: #fbbf24;
+  --violation: #f87171;
+
+  --glow-a: rgb(34 211 238 / 0.1);
+  --glow-b: rgb(23 61 110 / 0.28);
+  --grid-line: rgb(255 255 255 / 0.045);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-band: var(--band);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+
+  --color-ok: var(--ok);
+  --color-warning: var(--warning);
+  --color-violation: var(--violation);
+
+  --font-display: var(--font-unbounded), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Fluid scale — avoids a pile of breakpoint overrides and keeps the
+     typographic rhythm intact between 375px and 1440px.
+     Unbounded runs wide and heavy, so display sizes are a step smaller than
+     they would be with a neutral grotesk. */
+  --text-display: clamp(2.125rem, 1.35rem + 3.3vw, 3.125rem);
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.035em;
+
+  --text-h1: clamp(1.75rem, 1.3rem + 1.9vw, 2.375rem);
+  --text-h1--line-height: 1.12;
+  --text-h1--letter-spacing: -0.03em;
+
+  --text-h2: clamp(1.5rem, 1.32rem + 0.75vw, 1.8125rem);
+  --text-h2--line-height: 1.18;
+  --text-h2--letter-spacing: -0.025em;
+
+  --text-h3: 1.1875rem;
+  --text-h3--line-height: 1.32;
+  --text-h3--letter-spacing: -0.015em;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.55;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.06em;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  --container-site: 1200px;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-fg);
+  }
+
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+
+  .font-mono,
+  [class*='font-mono'] {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities
+--------------------------------------------------------------------------- */
+
+@utility container-site {
+  width: 100%;
+  max-width: var(--container-site);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@utility section-y {
+  padding-block: 4rem;
+
+  @media (width >= 48rem) {
+    padding-block: 6rem;
+  }
+}
+
+/* Chamfered geometry — cuts at top-left and bottom-right. This replaces the
+   rounded corner as the shape language of the system; it is what makes cards,
+   buttons and screenshots read as instrument panels rather than web cards. */
+@utility chamfer-sm {
+  clip-path: polygon(
+    8px 0%,
+    100% 0%,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0% 100%,
+    0% 8px
+  );
+}
+
+@utility chamfer-md {
+  clip-path: polygon(
+    16px 0%,
+    100% 0%,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0% 100%,
+    0% 16px
+  );
+}
+
+@utility chamfer-lg {
+  clip-path: polygon(
+    28px 0%,
+    100% 0%,
+    100% calc(100% - 28px),
+    calc(100% - 28px) 100%,
+    0% 100%,
+    0% 28px
+  );
+}
+
+/* Atmosphere layers.
+
+   These belong to a decorative child element, never to the section itself:
+   `mask-image` clips everything inside the element it sits on, so putting the
+   grid straight onto a <section> would fade out its own headings and body
+   copy along with the background.
+
+   They also scroll with the page rather than being pinned to the viewport —
+   a fixed backdrop reads as a separate plane sliding behind the content. */
+@utility atmos-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 72% at 50% 0%, black 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 72% at 50% 0%,
+    black 0%,
+    transparent 78%
+  );
+}
+
+@utility reveal {
+  animation: reveal-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility reveal-scroll {
+  animation: reveal-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @supports (animation-timeline: view()) {
+    animation-timeline: view();
+    animation-range: entry 5% cover 28%;
+  }
+}
+
+/* Glow placements. Every section that carries atmosphere picks a different
+   one, otherwise the identical wash in the identical corner turns a scroll
+   into visible copy-paste. */
+@utility signal-pulse {
+  animation: signal-down 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@utility slide-from-left {
+  animation: slide-in-left 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @supports (animation-timeline: view()) {
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+}
+
+@utility slide-from-right {
+  animation: slide-in-right 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @supports (animation-timeline: view()) {
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+}
+
+@utility atmos-glow-tl {
+  background-image:
+    radial-gradient(ellipse 55% 60% at 8% -5%, var(--glow-a), transparent 62%),
+    radial-gradient(ellipse 45% 50% at 95% 105%, var(--glow-b), transparent 60%);
+}
+
+@utility atmos-glow-tr {
+  background-image:
+    radial-gradient(ellipse 50% 55% at 92% -8%, var(--glow-a), transparent 60%),
+    radial-gradient(ellipse 40% 45% at 5% 90%, var(--glow-b), transparent 62%);
+}
+
+@utility atmos-glow-bl {
+  background-image:
+    radial-gradient(ellipse 60% 55% at 5% 105%, var(--glow-a), transparent 62%),
+    radial-gradient(ellipse 38% 42% at 88% 5%, var(--glow-b), transparent 60%);
+}
+
+@utility atmos-glow-br {
+  background-image:
+    radial-gradient(ellipse 55% 60% at 95% 100%, var(--glow-a), transparent 62%),
+    radial-gradient(ellipse 42% 45% at 8% -5%, var(--glow-b), transparent 60%);
+}
+
+@utility atmos-glow-center {
+  background-image: radial-gradient(
+    ellipse 70% 80% at 50% 50%,
+    var(--glow-a),
+    transparent 65%
+  );
+}
+
+/* Grid mask origins, so the fade does not always start from the same edge. */
+@utility atmos-grid-left {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 70% 90% at 0% 40%, black 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 90% at 0% 40%,
+    black 0%,
+    transparent 75%
+  );
+}
+
+@utility atmos-grid-right {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 70% 90% at 100% 55%, black 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 90% at 100% 55%,
+    black 0%,
+    transparent 75%
+  );
+}
+
+@layer components {
+  /* -------------------------------------------------------------------------
+     Chamfered button. The cut corners are drawn as two stacked pseudo-elements
+     (edge below, fill inset by the border width above) because clip-path has
+     no notion of a border — a plain 1px border would be sliced off flat at the
+     diagonals instead of following them.
+  ------------------------------------------------------------------------- */
+  .tech-btn {
+    --cut: 10px;
+    --edge: 1.5px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    isolation: isolate;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+    transition: color 250ms ease-out;
+  }
+
+  .tech-btn::before,
+  .tech-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: polygon(
+      var(--cut) 0%,
+      100% 0%,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0% 100%,
+      0% var(--cut)
+    );
+    transition: background-color 250ms ease-out;
+  }
+
+  .tech-btn::before {
+    z-index: -2;
+  }
+
+  .tech-btn::after {
+    inset: var(--edge);
+    z-index: -1;
+  }
+
+  .tech-btn[data-size='md'] {
+    min-height: 2.5rem;
+    padding-inline: 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .tech-btn[data-size='lg'] {
+    --cut: 12px;
+    min-height: 3rem;
+    padding-inline: 1.75rem;
+    font-size: 0.8125rem;
+  }
+
+  /* primary — accent fill, inverts to an outline on hover */
+  .tech-btn[data-variant='primary'] {
+    color: var(--accent-fg);
+  }
+  .tech-btn[data-variant='primary']::before,
+  .tech-btn[data-variant='primary']::after {
+    background-color: var(--accent);
+  }
+  .tech-btn[data-variant='primary']:not(:disabled):hover {
+    color: var(--accent);
+  }
+  .tech-btn[data-variant='primary']:not(:disabled):hover::after {
+    background-color: var(--bg);
+  }
+
+  /* secondary — outline that fills with the accent on hover */
+  .tech-btn[data-variant='secondary'] {
+    color: var(--text);
+  }
+  .tech-btn[data-variant='secondary']::before {
+    background-color: var(--border-strong);
+  }
+  .tech-btn[data-variant='secondary']::after {
+    background-color: var(--bg);
+  }
+  .tech-btn[data-variant='secondary']:not(:disabled):hover {
+    color: var(--accent);
+  }
+  .tech-btn[data-variant='secondary']:not(:disabled):hover::before {
+    background-color: var(--accent);
+  }
+
+  /* onImage — for use over photography, where theme tokens have no contrast */
+  .tech-btn[data-variant='onImage'] {
+    color: #fafafa;
+  }
+  .tech-btn[data-variant='onImage']::before {
+    background-color: rgb(250 250 250 / 0.45);
+  }
+  .tech-btn[data-variant='onImage']::after {
+    background-color: rgb(8 9 10 / 0.35);
+    backdrop-filter: blur(6px);
+  }
+  .tech-btn[data-variant='onImage']:not(:disabled):hover {
+    color: #08090a;
+  }
+  .tech-btn[data-variant='onImage']:not(:disabled):hover::before,
+  .tech-btn[data-variant='onImage']:not(:disabled):hover::after {
+    background-color: #fafafa;
+  }
+
+  .tech-btn:not(:disabled):active {
+    transform: scale(0.985);
+    transition: transform 80ms ease-out;
+  }
+
+  .tech-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  /* -------------------------------------------------------------------------
+     Header bar — the Kondor treatment: a chamfered plate whose 1px edge is a
+     horizontal gradient. Built from two stacked layers because clip-path has
+     no border; the edge layer is the gradient and the fill layer covers all
+     but a 1px rim of it.
+
+     Only from lg up. On phones the bar spans the full width and the gradient
+     moves to a bottom hairline instead, since a floating chamfered plate at
+     360px wide reads as a mistake.
+  ------------------------------------------------------------------------- */
+  .header-bar {
+    position: relative;
+    width: 100%;
+  }
+
+  .header-bar__edge,
+  .header-bar__fill {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .header-bar {
+      isolation: isolate;
+      --header-cut: 12px;
+      --header-border: 1px;
+      clip-path: polygon(
+        var(--header-cut) 0%,
+        100% 0%,
+        100% calc(100% - var(--header-cut)),
+        calc(100% - var(--header-cut)) 100%,
+        0% 100%,
+        0% var(--header-cut)
+      );
+    }
+
+    .header-bar__edge,
+    .header-bar__fill {
+      display: block;
+      position: absolute;
+      pointer-events: none;
+      clip-path: polygon(
+        var(--header-cut) 0%,
+        100% 0%,
+        100% calc(100% - var(--header-cut)),
+        calc(100% - var(--header-cut)) 100%,
+        0% 100%,
+        0% var(--header-cut)
+      );
+    }
+
+    .header-bar__edge {
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--accent) 25%, transparent) 0%,
+        var(--accent) 100%
+      );
+      z-index: -2;
+    }
+
+    .header-bar__fill {
+      inset: var(--header-border);
+      background: color-mix(in srgb, var(--bg) 86%, transparent);
+      z-index: -1;
+    }
+  }
+
+  /* -------------------------------------------------------------------------
+     Chamfered panel with a border that follows the diagonal cuts.
+
+     A plain `border` under a clip-path gets sliced flat where the corner is
+     cut, leaving the outline visibly broken. Same two-layer fix as the button:
+     the edge layer is the border colour, the fill layer covers all but a 1px
+     rim of it, and both inherit the clip so the rim tracks the cuts.
+  ------------------------------------------------------------------------- */
+  .panel-chamfer {
+    --cut: 16px;
+    --edge: 1px;
+    position: relative;
+    isolation: isolate;
+    clip-path: polygon(
+      var(--cut) 0%,
+      100% 0%,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0% 100%,
+      0% var(--cut)
+    );
+  }
+
+  .panel-chamfer::before,
+  .panel-chamfer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: inherit;
+  }
+
+  .panel-chamfer::before {
+    background-color: var(--border-strong);
+    z-index: -2;
+  }
+
+  .panel-chamfer::after {
+    inset: var(--edge);
+    background-color: var(--bg);
+    z-index: -1;
+  }
+
+  /* -------------------------------------------------------------------------
+     Form surfaces get the same chamfer so inputs belong to the same system.
+  ------------------------------------------------------------------------- */
+  .tech-field {
+    --cut: 8px;
+    --edge: 1px;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .tech-field::before,
+  .tech-field::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: polygon(
+      var(--cut) 0%,
+      100% 0%,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0% 100%,
+      0% var(--cut)
+    );
+    transition: background-color 200ms ease-out;
+  }
+
+  .tech-field::before {
+    background-color: var(--border);
+    z-index: -2;
+  }
+
+  .tech-field::after {
+    inset: var(--edge);
+    background-color: var(--bg);
+    z-index: -1;
+  }
+
+  .tech-field:hover::before {
+    background-color: var(--border-strong);
+  }
+
+  .tech-field:focus-within::before {
+    background-color: var(--accent);
+  }
+
+  .tech-field[data-invalid='true']::before {
+    background-color: var(--violation);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Keyframes — used by the Radix dialog, which drives its own enter/exit via
+   data-state attributes rather than through motion.
+--------------------------------------------------------------------------- */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Scroll reveal, in CSS rather than JS.
+
+   `both` fill plus no trigger means the worst case is "the animation already
+   played" — the content is visible either way. A JS-driven reveal fails the
+   other direction: if the library does not hydrate, the copy stays at
+   opacity 0 and the page is blank. Not a trade worth making on a marketing
+   site.
+
+   Where scroll-driven timelines exist the same keyframes get tied to the
+   element entering the viewport; everywhere else they just play on load. */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scale only — the panel is centred by its flex wrapper, not by a translate,
+   so the animation has no offset to reproduce and cannot fight the layout. */
+/* Devices entering from opposite sides. Same reasoning as the reveal: `both`
+   fill means the failure mode is "already arrived", never "never appeared". */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-7%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(14%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A short cyan segment travelling down a connector, showing which way data
+   moves through the diagram. Transform and opacity only, so it composites on
+   the GPU and never triggers layout. */
+@keyframes signal-down {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

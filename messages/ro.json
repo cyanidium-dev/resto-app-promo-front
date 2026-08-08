@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "defaultTitle": "MySaniTrace — HACCP digital și control operațional pentru HoReCa",
+    "defaultDescription": "Digitalizează verificările HACCP, organizează echipa și monitorizează fiecare locație în timp real. Platformă pentru restaurante, hoteluri, catering și producători alimentari."
+  },
+  "nav": {
+    "platform": "Platformă",
+    "solutions": "Soluții",
+    "gallery": "Galerie",
+    "pricing": "Prețuri",
+    "contact": "Contact",
+    "requestDemo": "Solicită demo",
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Închide meniul",
+    "toggleTheme": "Schimbă tema",
+    "language": "Limbă"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "HACCP DIGITAL · CONTROL OPERAȚIONAL",
+      "title": "Siguranța alimentară și controlul operațional într-o singură platformă",
+      "subtitle": "MySaniTrace digitalizează verificările HACCP, organizează activitatea echipei și îți oferă control în timp real asupra fiecărei locații.",
+      "benefits": [
+        "Mai puțină hârtie",
+        "Sarcini finalizate la timp",
+        "Dovadă clară pentru fiecare verificare",
+        "Control de oriunde"
+      ],
+      "primaryCta": "Solicită demo",
+      "secondaryCta": "Vezi platforma",
+      "microcopy": "Demonstrație construită pe operațiunile reale ale companiei tale.",
+      "imageAlt": "Panoul principal MySaniTrace: stare pe toate locațiile, temperaturi curente și verificări finalizate"
+    },
+    "trust": {
+      "title": "Construit pentru profesioniștii din industria alimentară",
+      "items": [
+        "Restaurante",
+        "Hoteluri",
+        "Companii de catering",
+        "Cantine",
+        "Brutării",
+        "Producători alimentari",
+        "Lanțuri și francize"
+      ]
+    },
+    "problem": {
+      "label": "PROBLEMA",
+      "title": "Cât control ai, de fapt, asupra operațiunilor zilnice?",
+      "intro": "În multe afaceri verificările HACCP se completează încă pe hârtie, sarcinile se transmit verbal, iar managerul află despre probleme prea târziu.",
+      "items": [
+        {
+          "id": "01",
+          "title": "Formulare completate incorect",
+          "text": "Documentele pe hârtie se pierd, se deteriorează sau se completează retroactiv, la final de lună."
+        },
+        {
+          "id": "02",
+          "title": "Responsabilitate neclară",
+          "text": "Managerul nu poate verifica rapid cine a răspuns de o sarcină și dacă a fost finalizată."
+        },
+        {
+          "id": "03",
+          "title": "Probleme descoperite prea târziu",
+          "text": "Temperaturi neconforme, curățenie incompletă sau defecțiuni de echipament pot rămâne neobservate zile întregi."
+        },
+        {
+          "id": "04",
+          "title": "Vizibilitate limitată între locații",
+          "text": "Fără informație centralizată, managerul trebuie să fie fizic prezent ca să verifice ce se întâmplă."
+        }
+      ]
+    },
+    "cycle": {
+      "label": "SOLUȚIA",
+      "title": "MySaniTrace transformă procedurile în acțiuni verificabile",
+      "intro": "Platforma centralizează verificările HACCP, sarcinile echipei, neconformitățile și rapoartele operaționale. Angajații completează de pe telefon sau tabletă, managerii urmăresc activitatea în timp real.",
+      "steps": [
+        { "key": "plan", "title": "Planifică", "text": "Definești verificările, frecvențele și limitele acceptate." },
+        { "key": "assign", "title": "Atribuie", "text": "Aloci sarcini pe angajat, rol, tură sau locație." },
+        { "key": "execute", "title": "Execută", "text": "Echipa completează direct de pe telefon, în timpul turei." },
+        { "key": "verify", "title": "Verifică", "text": "Vezi ce s-a făcut, când, de către cine și cu ce dovadă." },
+        { "key": "improve", "title": "Îmbunătățește", "text": "Identifici problemele repetate și corectezi procesul." }
+      ],
+      "caption": "Ciclul se repetă în fiecare tură, ca standardele să nu scape."
+    },
+    "architecture": {
+      "label": "CUM FUNCȚIONEAZĂ",
+      "title": "De la telefonul angajatului la ecranul tău, în câteva secunde",
+      "intro": "Verificarea se completează în locație, datele ajung imediat în platformă, iar tu vezi rezultatul fără să suni pe nimeni.",
+      "nodes": [
+        { "id": "01", "title": "Locația", "text": "Angajatul completează verificarea de pe telefon, în timpul turei." },
+        { "id": "02", "title": "Platforma", "text": "Datele sunt înregistrate și comparate automat cu limitele definite." },
+        { "id": "03", "title": "Managerul", "text": "Vezi activitatea tuturor locațiilor în timp real, de oriunde." },
+        { "id": "04", "title": "Reacția", "text": "Abaterea generează o alertă și o acțiune corectivă cu responsabil." }
+      ],
+      "notes": [
+        { "title": "Funcționează și fără semnal", "text": "Verificările completate offline se sincronizează singure când revine conexiunea." },
+        { "title": "Un singur cont", "text": "Toate locațiile, aceleași proceduri, aceeași evidență." },
+        { "title": "Nimic nu rămâne pe telefon", "text": "Datele sunt centralizate și nu depind de dispozitivul angajatului." }
+      ]
+    },
+    "modules": {
+      "label": "MODULE",
+      "title": "Tot ce îți trebuie pentru controlul zilnic al operațiunilor",
+      "items": [
+        {
+          "id": "01",
+          "title": "Liste de verificare digitale",
+          "text": "Înlocuiește evidențele pe hârtie. Creezi verificări pentru deschidere, închidere, igienă, producție și siguranță alimentară."
+        },
+        {
+          "id": "02",
+          "title": "Monitorizarea temperaturii",
+          "text": "Protejează lanțul de frig. Înregistrezi temperaturile echipamentelor, ale mărfii primite și ale preparatelor. Valorile neconforme sunt semnalate imediat."
+        },
+        {
+          "id": "03",
+          "title": "Plan de curățenie",
+          "text": "Fiecare zonă, fiecare sarcină, fiecare responsabil. Programezi activitățile și verifici dacă au fost realizate conform planului."
+        },
+        {
+          "id": "04",
+          "title": "Sarcini și responsabilități",
+          "text": "Echipa știe exact ce are de făcut. Atribui sarcini pe angajat, rol, tură sau locație și urmărești finalizarea."
+        },
+        {
+          "id": "05",
+          "title": "Dovezi foto",
+          "text": "Verifici execuția propriu-zisă. Angajații atașează fotografii care demonstrează că sarcina a fost făcută corect."
+        },
+        {
+          "id": "06",
+          "title": "Alerte și notificări",
+          "text": "Acționezi înainte ca problema să devină gravă. Primești notificări pentru sarcini întârziate, verificări omise sau valori peste limită."
+        },
+        {
+          "id": "07",
+          "title": "Acțiuni corective",
+          "text": "Fiecare neconformitate trebuie rezolvată. Înregistrezi problema, aloci un responsabil și urmărești acțiunea până la închidere."
+        },
+        {
+          "id": "08",
+          "title": "Rapoarte și istoric digital",
+          "text": "Toată informația, disponibilă imediat. Consulți istoricul activității și pregătești rapid documentele pentru audit și control."
+        }
+      ],
+      "cta": "Vezi platforma în detaliu"
+    },
+    "comparison": {
+      "label": "DIFERENȚA",
+      "title": "De la hârtii și haos operațional la control digital",
+      "withoutTitle": "Fără MySaniTrace",
+      "withTitle": "Cu MySaniTrace",
+      "rows": [
+        { "without": "Formulare pe hârtie", "with": "Liste de verificare digitale" },
+        { "without": "Sarcini transmise verbal", "with": "Responsabilități atribuite nominal" },
+        { "without": "Probleme identificate prea târziu", "with": "Alerte și notificări imediate" },
+        { "without": "Dovezi greu de verificat", "with": "Confirmări și fotografii" },
+        { "without": "Documente împrăștiate", "with": "Informație centralizată" },
+        { "without": "Control doar din locație", "with": "Monitorizare de la distanță" },
+        { "without": "Proceduri aplicate inconsecvent", "with": "Standarde uniforme" }
+      ]
+    },
+    "multiLocation": {
+      "label": "REȚEA",
+      "title": "O singură platformă pentru toate locațiile tale",
+      "intro": "Standardizezi procedurile și monitorizezi restaurante, cafenele, hoteluri sau puncte de producție dintr-un singur cont.",
+      "items": [
+        { "title": "Control centralizat", "text": "Vezi starea generală a întregii rețele, într-un singur ecran." },
+        { "title": "Comparație între locații", "text": "Identifici rapid unitățile cu performanță mai slabă." },
+        { "title": "Standarde uniforme", "text": "Aplici aceleași proceduri în fiecare unitate." },
+        { "title": "Extindere controlată", "text": "Integrezi locații și angajați noi fără să reiei totul de la zero." }
+      ],
+      "imageAlt": "Vedere pe rețea: comparație între locații după conformitate și probleme deschise"
+    },
+    "adoption": {
+      "label": "ADOPȚIE",
+      "title": "„Dar personalul meu chiar o să folosească asta?”",
+      "intro": "Este prima întrebare pe care o pune orice manager. De aceea aplicația pentru angajați a fost construită pentru viteză, nu pentru training.",
+      "items": [
+        { "title": "Trei atingeri per verificare", "text": "Deschide sarcina, introdu valoarea, confirmă. Fără meniuri stufoase." },
+        { "title": "Pe telefonul pe care îl au deja", "text": "Funcționează pe telefon și tabletă, fără echipament nou." },
+        { "title": "Fără experiență tehnică", "text": "Interfața este gândită pentru echipe operaționale, nu pentru birou." },
+        { "title": "Instruire inclusă", "text": "Pregătim personalul în timpul implementării, la voi în locație." }
+      ],
+      "imageAlt": "Ecrane din aplicația pentru angajați: listă de verificare și înregistrarea temperaturii"
+    },
+    "local": {
+      "label": "AVANTAJ LOCAL",
+      "title": "Echipă locală. Cerințe locale.",
+      "intro": "Aplicațiile internaționale standardizate nu îți oferă acest tip de sprijin. Lucrăm cu operațiuni HoReCa din regiune și înțelegem cum se desfășoară un control în practică.",
+      "items": [
+        { "title": "Configurare pe procesele tale", "text": "Adaptăm formularele și responsabilitățile la modul în care lucrează echipa ta, nu invers." },
+        { "title": "Suport în limba ta", "text": "Răspundem în română, engleză sau rusă, în timpul programului tău de lucru." },
+        { "title": "Sprijin la control", "text": "Te ajutăm să pregătești documentația atunci când ai o inspecție." }
+      ],
+      "imageAlt": "Bucătărie profesională înainte de începerea turei"
+    },
+    "implementation": {
+      "label": "IMPLEMENTARE",
+      "title": "Primești un sistem construit pe modul în care lucrează compania ta",
+      "steps": [
+        { "id": "01", "title": "Evaluare", "text": "Analizăm procesele și cerințele operaționale ale companiei." },
+        { "id": "02", "title": "Configurare", "text": "Adaptăm formularele, sarcinile și responsabilitățile la afacerea ta." },
+        { "id": "03", "title": "Instruire", "text": "Pregătim managerii și angajații să folosească platforma." },
+        { "id": "04", "title": "Suport", "text": "Rămânem alături pe tot parcursul implementării și în utilizarea zilnică." }
+      ]
+    },
+    "finalCta": {
+      "label": "URMĂTORUL PAS",
+      "title": "Controlul operațional începe cu o imagine clară a activității zilnice",
+      "intro": "Îți arătăm cum MySaniTrace digitalizează verificările HACCP, organizează echipa și uniformizează procesele în fiecare locație.",
+      "tagline": "Fiecare sarcină. Fiecare locație. Sub control."
+    }
+  },
+  "form": {
+    "title": "Solicită o demonstrație personalizată",
+    "intro": "Evaluăm cerințele companiei și îți prezentăm configurația potrivită pentru operațiunile tale.",
+    "name": "Nume și prenume",
+    "namePlaceholder": "Ion Popescu",
+    "company": "Compania",
+    "companyPlaceholder": "Restaurant Exemplu SRL",
+    "phone": "Telefon",
+    "phonePlaceholder": "+373 00 000 000",
+    "email": "E-mail",
+    "emailPlaceholder": "nume@companie.md",
+    "locations": "Număr de locații",
+    "locationsOptions": {
+      "one": "1 locație",
+      "small": "2–5 locații",
+      "medium": "6–20 locații",
+      "large": "peste 20 de locații"
+    },
+    "message": "Mesaj",
+    "messagePlaceholder": "Spune-ne pe scurt ce ai vrea să rezolvi.",
+    "consent": "Sunt de acord cu prelucrarea datelor mele conform",
+    "consentLink": "politicii de confidențialitate",
+    "submit": "Trimite solicitarea",
+    "submitting": "Se trimite…",
+    "optional": "opțional",
+    "errors": {
+      "name": "Introdu numele tău.",
+      "company": "Introdu numele companiei.",
+      "phone": "Introdu un număr de telefon valid.",
+      "email": "Introdu o adresă de e-mail validă.",
+      "consent": "Este necesar acordul pentru a trimite solicitarea.",
+      "generic": "Nu am putut trimite solicitarea. Încearcă din nou sau scrie-ne direct la {email}."
+    }
+  },
+  "pages": {
+    "platform": {
+      "label": "PLATFORMĂ",
+      "title": "Opt module care acoperă controlul operațional zilnic",
+      "intro": "Fiecare modul rezolvă o parte concretă din activitatea zilnică. Poți începe cu unul singur și extinde pe măsură ce echipa se obișnuiește.",
+      "cta": "Solicită o demonstrație"
+    },
+    "solutions": {
+      "label": "SOLUȚII",
+      "title": "MySaniTrace se adaptează operațiunii tale",
+      "intro": "Aceleași principii, configurate diferit în funcție de ce produci și de felul în care lucrează echipa ta.",
+      "items": [
+        { "title": "Restaurante și cafenele", "text": "Controlezi igiena, temperaturile și activitățile zilnice fără să fii permanent în locație." },
+        { "title": "Hoteluri și resorturi", "text": "Aplici proceduri uniforme în bucătării și în toate punctele de servire." },
+        { "title": "Catering și cantine", "text": "Gestionezi verificările pentru producție alimentară de volum mare." },
+        { "title": "Brutării și cofetării", "text": "Urmărești materiile prime, termenele de valabilitate și condițiile de depozitare." },
+        { "title": "Producători alimentari", "text": "Monitorizezi activitatea operațională și gestionezi neconformitățile." },
+        { "title": "Lanțuri și francize", "text": "Vezi fiecare locație dintr-un singur sistem, cu aceleași standarde peste tot." }
+      ]
+    },
+    "pricing": {
+      "label": "PREȚURI ȘI IMPLEMENTARE",
+      "title": "Prețul depinde de numărul de locații și de configurație",
+      "intro": "Nu vindem un pachet fix. Stabilim configurația după ce înțelegem cum lucrează echipa ta, apoi îți dăm un preț clar, fără costuri ascunse.",
+      "modelTitle": "Cum se formează prețul",
+      "modelItems": [
+        { "title": "Număr de locații", "text": "Costul lunar se calculează pe locație. Cu cât rețeaua este mai mare, cu atât costul per unitate scade." },
+        { "title": "Module active", "text": "Plătești pentru modulele pe care le folosești. Poți începe cu verificările de bază și extinde ulterior." },
+        { "title": "Configurare inițială", "text": "O singură dată, la început: adaptarea formularelor, instruirea echipei și punerea în funcțiune." }
+      ],
+      "processTitle": "Cum decurge implementarea",
+      "note": "Îți transmitem oferta după prima discuție, în care evaluăm împreună numărul de locații, procesele și nivelul de personalizare necesar."
+    },
+    "contact": {
+      "label": "CONTACT",
+      "title": "Hai să vedem cum arată controlul operațional la tine",
+      "intro": "Completează formularul și revenim cu o demonstrație adaptată operațiunilor tale. Dacă preferi, ne poți scrie direct.",
+      "directTitle": "Direct",
+      "faqTitle": "Întrebări frecvente",
+      "faq": [
+        { "q": "MySaniTrace înlocuiește evidențele pe hârtie?", "a": "Da. Verificările se completează și se păstrează digital, cu istoric complet și dovezi atașate. La configurare stabilim împreună ce trebuie acoperit pentru activitatea și jurisdicția ta." },
+        { "q": "Poate fi folosit pe telefon?", "a": "Da. Angajații completează sarcinile și verificările de pe telefon sau tabletă, fără echipament suplimentar." },
+        { "q": "Pot gestiona mai multe locații?", "a": "Da. Monitorizezi mai multe locații dintr-un singur cont, cu vizualizare comparativă între unități." },
+        { "q": "Platforma se poate personaliza?", "a": "Da. Sarcinile, listele de verificare, frecvențele și responsabilitățile se adaptează la procesele companiei tale." },
+        { "q": "Este nevoie de experiență tehnică?", "a": "Nu. Interfața este gândită pentru echipe operaționale, iar instruirea personalului este inclusă în implementare." },
+        { "q": "Cât durează implementarea?", "a": "Depinde de numărul de locații și de complexitatea proceselor. La prima discuție îți dăm un termen concret pentru situația ta." }
+      ]
+    },
+    "thankYou": {
+      "title": "Am primit solicitarea ta",
+      "text": "Îți mulțumim. Un coleg te va contacta în cel mai scurt timp pentru a stabili demonstrația.",
+      "back": "Înapoi la pagina principală"
+    },
+    "privacy": {
+      "title": "Politica de confidențialitate",
+      "notice": "Textul final al acestei pagini urmează să fie furnizat de client, împreună cu datele companiei și temeiul legal al prelucrării."
+    }
+  },
+  "footer": {
+    "tagline": "Fiecare sarcină. Fiecare locație. Sub control.",
+    "product": "Produs",
+    "company": "Companie",
+    "contacts": "Contact",
+    "address": "Adresă",
+    "regNumber": "IDNO",
+    "legal": "Legal",
+    "privacy": "Politica de confidențialitate",
+    "rights": "Toate drepturile rezervate."
+  },
+  "ui": {
+    "scrollTop": "Sus",
+    "contactUs": "Contactează-ne",
+    "closeContacts": "Închide contactele",
+    "close": "Închide",
+    "home": "Acasă",
+    "breadcrumb": "Firimituri de pâine",
+    "openImage": "Deschide imaginea",
+    "requestDemo": "Solicită demo"
+  },
+  "gallery": {
+    "label": "GALERIE",
+    "title": "Platforma și mediile în care lucrează",
+    "intro": "Capturi din aplicație și imagini din bucătării profesionale, depozite frigorifice și spații de producție.",
+    "screensTitle": "Capturi din aplicație",
+    "photosTitle": "Medii de lucru"
+  }
+}

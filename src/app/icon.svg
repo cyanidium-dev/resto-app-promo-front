@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Chamfered tile: the site's shape language reduced to a favicon.
+       Cyan on near-black reads on both light and dark browser chrome. -->
+  <path d="M8 0 H32 V24 L24 32 H0 V8 Z" fill="#08090a"/>
+  <path d="M11 8 H24 V10.5 H11 Z" fill="#22d3ee"/>
+  <path d="M8 14.75 H24 V17.25 H8 Z" fill="#22d3ee"/>
+  <path d="M8 21.5 H21 V24 H8 Z" fill="#22d3ee"/>
+</svg>

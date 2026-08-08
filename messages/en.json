@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "defaultTitle": "MySaniTrace — Digital HACCP and operational control for food businesses",
+    "defaultDescription": "Digitise HACCP checks, organise your team and monitor every location in real time. Built for restaurants, hotels, catering companies and food producers."
+  },
+  "nav": {
+    "platform": "Platform",
+    "solutions": "Solutions",
+    "gallery": "Gallery",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "requestDemo": "Request a demo",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Switch theme",
+    "language": "Language"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "DIGITAL HACCP · OPERATIONAL CONTROL",
+      "title": "Food safety and operational control in one platform",
+      "subtitle": "MySaniTrace digitises HACCP checks, organises team activity and gives you real-time control over every location.",
+      "benefits": [
+        "Less paperwork",
+        "Tasks completed on time",
+        "Clear evidence for every check",
+        "Control from anywhere"
+      ],
+      "primaryCta": "Request a demo",
+      "secondaryCta": "Explore the platform",
+      "microcopy": "A demonstration built around how your company actually operates.",
+      "imageAlt": "MySaniTrace main dashboard: status across all locations, current temperatures and completed checks"
+    },
+    "trust": {
+      "title": "Built for food industry professionals",
+      "items": [
+        "Restaurants",
+        "Hotels",
+        "Catering companies",
+        "Canteens",
+        "Bakeries",
+        "Food producers",
+        "Chains and franchises"
+      ]
+    },
+    "problem": {
+      "label": "THE PROBLEM",
+      "title": "How much control do you really have over daily operations?",
+      "intro": "In many businesses HACCP checks are still completed on paper, tasks are passed on verbally, and managers hear about problems too late.",
+      "items": [
+        {
+          "id": "01",
+          "title": "Incorrectly completed forms",
+          "text": "Paper records get lost, damaged, or filled in retroactively at the end of the month."
+        },
+        {
+          "id": "02",
+          "title": "No clear responsibility",
+          "text": "The manager cannot quickly verify who was responsible for a task, or whether it was completed at all."
+        },
+        {
+          "id": "03",
+          "title": "Problems found too late",
+          "text": "Non-compliant temperatures, incomplete cleaning or equipment failures can go unnoticed for days."
+        },
+        {
+          "id": "04",
+          "title": "Limited visibility across locations",
+          "text": "Without centralised information, the manager has to be physically present to know what is happening."
+        }
+      ]
+    },
+    "cycle": {
+      "label": "THE SOLUTION",
+      "title": "MySaniTrace turns procedures into verifiable actions",
+      "intro": "The platform centralises HACCP checks, team tasks, non-conformities and operational reports. Staff complete work from a phone or tablet while managers follow activity in real time.",
+      "steps": [
+        { "key": "plan", "title": "Plan", "text": "Define the checks, their frequency and the accepted limits." },
+        { "key": "assign", "title": "Assign", "text": "Allocate tasks by employee, role, shift or location." },
+        { "key": "execute", "title": "Execute", "text": "The team completes work from a phone, during the shift." },
+        { "key": "verify", "title": "Verify", "text": "See what was done, when, by whom and with what evidence." },
+        { "key": "improve", "title": "Improve", "text": "Spot recurring problems and fix the process behind them." }
+      ],
+      "caption": "The cycle repeats every shift, so standards do not slip between them."
+    },
+    "architecture": {
+      "label": "HOW IT WORKS",
+      "title": "From the employee's phone to your screen, in seconds",
+      "intro": "The check is completed on site, the data reaches the platform immediately, and you see the result without phoning anyone.",
+      "nodes": [
+        { "id": "01", "title": "The location", "text": "Staff complete the check from a phone, during the shift." },
+        { "id": "02", "title": "The platform", "text": "Data is recorded and compared automatically against the defined limits." },
+        { "id": "03", "title": "The manager", "text": "You see activity across every location in real time, from anywhere." },
+        { "id": "04", "title": "The response", "text": "A deviation raises an alert and a corrective action with a named owner." }
+      ],
+      "notes": [
+        { "title": "Works without signal", "text": "Checks completed offline sync on their own once the connection returns." },
+        { "title": "One account", "text": "Every location, the same procedures, the same record." },
+        { "title": "Nothing stays on the phone", "text": "Data is centralised and does not depend on the employee's device." }
+      ]
+    },
+    "modules": {
+      "label": "MODULES",
+      "title": "Everything you need for day-to-day operational control",
+      "items": [
+        {
+          "id": "01",
+          "title": "Digital checklists",
+          "text": "Replace paper records. Build checks for opening, closing, hygiene, production and food safety."
+        },
+        {
+          "id": "02",
+          "title": "Temperature monitoring",
+          "text": "Protect the cold chain. Record equipment, incoming-product and prepared-food temperatures. Non-compliant values are flagged immediately."
+        },
+        {
+          "id": "03",
+          "title": "Cleaning plan",
+          "text": "Every area, every task, every person accountable. Schedule cleaning activities and verify they were done to plan."
+        },
+        {
+          "id": "04",
+          "title": "Tasks and responsibilities",
+          "text": "Your team knows exactly what to do. Assign tasks by employee, role, shift or location and track completion."
+        },
+        {
+          "id": "05",
+          "title": "Photo evidence",
+          "text": "Check the work itself. Staff attach photographs showing the task was done correctly."
+        },
+        {
+          "id": "06",
+          "title": "Alerts and notifications",
+          "text": "Act before a problem becomes serious. Get notified about overdue tasks, missed checks or values outside the limits."
+        },
+        {
+          "id": "07",
+          "title": "Corrective actions",
+          "text": "Every non-conformity has to be resolved. Log the issue, assign an owner and follow the action through to closure."
+        },
+        {
+          "id": "08",
+          "title": "Reports and digital history",
+          "text": "All the information, immediately available. Review activity history and prepare audit documentation in minutes."
+        }
+      ],
+      "cta": "See the platform in detail"
+    },
+    "comparison": {
+      "label": "THE DIFFERENCE",
+      "title": "From paperwork and operational chaos to digital control",
+      "withoutTitle": "Without MySaniTrace",
+      "withTitle": "With MySaniTrace",
+      "rows": [
+        { "without": "Paper forms", "with": "Digital checklists" },
+        { "without": "Verbally assigned tasks", "with": "Named responsibilities" },
+        { "without": "Problems identified too late", "with": "Immediate alerts" },
+        { "without": "Evidence that is hard to verify", "with": "Confirmations and photographs" },
+        { "without": "Scattered documents", "with": "Centralised information" },
+        { "without": "Control only from the location", "with": "Remote monitoring" },
+        { "without": "Procedures applied inconsistently", "with": "Consistent standards" }
+      ]
+    },
+    "multiLocation": {
+      "label": "NETWORK",
+      "title": "One platform for all your locations",
+      "intro": "Standardise procedures and monitor restaurants, cafés, hotels or production sites from a single account.",
+      "items": [
+        { "title": "Centralised control", "text": "See the state of the entire network on one screen." },
+        { "title": "Location comparison", "text": "Identify weaker-performing units quickly." },
+        { "title": "Consistent standards", "text": "Apply the same procedures in every unit." },
+        { "title": "Controlled expansion", "text": "Add new locations and staff without rebuilding everything." }
+      ],
+      "imageAlt": "Network view: locations compared by compliance rate and open issues"
+    },
+    "adoption": {
+      "label": "ADOPTION",
+      "title": "“But will my staff actually use it?”",
+      "intro": "It is the first question every manager asks. That is why the employee app was built for speed, not for training.",
+      "items": [
+        { "title": "Three taps per check", "text": "Open the task, enter the value, confirm. No deep menus." },
+        { "title": "On the phone they already have", "text": "Works on phone and tablet, with no new hardware to buy." },
+        { "title": "No technical experience needed", "text": "The interface is designed for frontline teams, not for the office." },
+        { "title": "Training included", "text": "We train your staff during implementation, on site." }
+      ],
+      "imageAlt": "Employee app screens: checklist and temperature entry"
+    },
+    "local": {
+      "label": "LOCAL ADVANTAGE",
+      "title": "Local team. Local requirements.",
+      "intro": "Standardised international apps will not give you this kind of support. We work with HoReCa operations in the region and understand how an inspection actually goes.",
+      "items": [
+        { "title": "Configured around your processes", "text": "We adapt the forms and responsibilities to how your team works, not the other way round." },
+        { "title": "Support in your language", "text": "We answer in Romanian, English or Russian, during your working hours." },
+        { "title": "Help during inspections", "text": "We help you prepare the documentation when you have a control visit." }
+      ],
+      "imageAlt": "A professional kitchen before the shift begins"
+    },
+    "implementation": {
+      "label": "IMPLEMENTATION",
+      "title": "You get a system built around how your company operates",
+      "steps": [
+        { "id": "01", "title": "Assessment", "text": "We review your company's processes and operational requirements." },
+        { "id": "02", "title": "Configuration", "text": "We adapt the forms, tasks and responsibilities to your business." },
+        { "id": "03", "title": "Training", "text": "We prepare managers and staff to use the platform." },
+        { "id": "04", "title": "Support", "text": "We stay with you through implementation and day-to-day use." }
+      ]
+    },
+    "finalCta": {
+      "label": "NEXT STEP",
+      "title": "Operational control starts with a clear view of daily activity",
+      "intro": "We will show you how MySaniTrace digitises HACCP checks, organises your team and standardises processes across every location.",
+      "tagline": "Every task. Every location. Under control."
+    }
+  },
+  "form": {
+    "title": "Request a personalised demo",
+    "intro": "We assess your company's requirements and present the configuration that fits your operation.",
+    "name": "Full name",
+    "namePlaceholder": "John Smith",
+    "company": "Company",
+    "companyPlaceholder": "Example Restaurant Ltd",
+    "phone": "Phone",
+    "phonePlaceholder": "+373 00 000 000",
+    "email": "Email",
+    "emailPlaceholder": "name@company.com",
+    "locations": "Number of locations",
+    "locationsOptions": {
+      "one": "1 location",
+      "small": "2–5 locations",
+      "medium": "6–20 locations",
+      "large": "more than 20 locations"
+    },
+    "message": "Message",
+    "messagePlaceholder": "Tell us briefly what you are trying to solve.",
+    "consent": "I agree to the processing of my data in line with the",
+    "consentLink": "privacy policy",
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "optional": "optional",
+    "errors": {
+      "name": "Please enter your name.",
+      "company": "Please enter your company name.",
+      "phone": "Please enter a valid phone number.",
+      "email": "Please enter a valid email address.",
+      "consent": "Your consent is required to send the request.",
+      "generic": "We could not send your request. Please try again or write to us directly at {email}."
+    }
+  },
+  "pages": {
+    "platform": {
+      "label": "PLATFORM",
+      "title": "Eight modules covering day-to-day operational control",
+      "intro": "Each module solves one concrete part of the daily routine. You can start with a single one and expand as the team settles in.",
+      "cta": "Request a demo"
+    },
+    "solutions": {
+      "label": "SOLUTIONS",
+      "title": "MySaniTrace adapts to your operation",
+      "intro": "The same principles, configured differently depending on what you produce and how your team works.",
+      "items": [
+        { "title": "Restaurants and cafés", "text": "Control hygiene, temperatures and daily activity without being on site permanently." },
+        { "title": "Hotels and resorts", "text": "Apply consistent procedures across kitchens and every service point." },
+        { "title": "Catering and canteens", "text": "Manage checks for high-volume food production." },
+        { "title": "Bakeries and pastry shops", "text": "Track raw materials, expiry dates and storage conditions." },
+        { "title": "Food producers", "text": "Monitor operational activity and manage non-conformities." },
+        { "title": "Chains and franchises", "text": "See every location in one system, with the same standards everywhere." }
+      ]
+    },
+    "pricing": {
+      "label": "PRICING AND IMPLEMENTATION",
+      "title": "Pricing depends on the number of locations and the configuration",
+      "intro": "We do not sell a fixed package. We agree the configuration once we understand how your team works, then give you a clear price with no hidden costs.",
+      "modelTitle": "How the price is built",
+      "modelItems": [
+        { "title": "Number of locations", "text": "The monthly cost is calculated per location. The larger the network, the lower the cost per unit." },
+        { "title": "Active modules", "text": "You pay for the modules you use. Start with the core checks and expand later." },
+        { "title": "Initial setup", "text": "A one-off at the start: adapting the forms, training the team and going live." }
+      ],
+      "processTitle": "How implementation works",
+      "note": "We send the offer after a first conversation, where we assess the number of locations, your processes and the level of customisation required."
+    },
+    "contact": {
+      "label": "CONTACT",
+      "title": "Let's see what operational control looks like at your business",
+      "intro": "Fill in the form and we will come back with a demonstration tailored to your operation. If you prefer, write to us directly.",
+      "directTitle": "Direct",
+      "faqTitle": "Frequently asked questions",
+      "faq": [
+        { "q": "Does MySaniTrace replace paper records?", "a": "Yes. Checks are completed and kept digitally, with full history and attached evidence. During setup we agree together what needs to be covered for your activity and jurisdiction." },
+        { "q": "Can it be used on a phone?", "a": "Yes. Staff complete tasks and checks from a phone or tablet, with no additional equipment." },
+        { "q": "Can I manage several locations?", "a": "Yes. You monitor multiple locations from one account, with a comparative view across units." },
+        { "q": "Can the platform be customised?", "a": "Yes. Tasks, checklists, frequencies and responsibilities are adapted to your company's processes." },
+        { "q": "Is technical experience required?", "a": "No. The interface is designed for frontline teams, and staff training is included in the implementation." },
+        { "q": "How long does implementation take?", "a": "It depends on the number of locations and the complexity of your processes. We give you a concrete timeline for your situation in the first conversation." }
+      ]
+    },
+    "thankYou": {
+      "title": "We received your request",
+      "text": "Thank you. A colleague will contact you shortly to arrange the demonstration.",
+      "back": "Back to the homepage"
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "notice": "The final text of this page is to be supplied by the client, together with the company details and the legal basis for processing."
+    }
+  },
+  "footer": {
+    "tagline": "Every task. Every location. Under control.",
+    "product": "Product",
+    "company": "Company",
+    "contacts": "Contact",
+    "address": "Address",
+    "regNumber": "Reg. no.",
+    "legal": "Legal",
+    "privacy": "Privacy policy",
+    "rights": "All rights reserved."
+  },
+  "ui": {
+    "scrollTop": "Back to top",
+    "contactUs": "Contact us",
+    "closeContacts": "Close contacts",
+    "close": "Close",
+    "home": "Home",
+    "breadcrumb": "Breadcrumb",
+    "openImage": "Open image",
+    "requestDemo": "Request a demo"
+  },
+  "gallery": {
+    "label": "GALLERY",
+    "title": "The platform and the places it runs in",
+    "intro": "Screens from the application, alongside professional kitchens, cold rooms and production floors.",
+    "screensTitle": "Application screens",
+    "photosTitle": "Working environments"
+  }
+}

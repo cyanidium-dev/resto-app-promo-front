@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 64" width="420" height="64" role="img" aria-label="MySaniTrace">
+  <title>MySaniTrace</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@700&amp;display=swap');
+    .wm { font-family: 'Unbounded', ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -1.76px; }
+  </style>
+  <text class="wm" x="0" y="45">
+    <tspan fill="#fafafa">MySani</tspan><tspan fill="#22d3ee">Trace</tspan>
+  </text>
+</svg>
