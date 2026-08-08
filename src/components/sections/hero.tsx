@@ -69,9 +69,37 @@ export async function Hero() {
             background sitting around RGB 25 that takes far less than it looks
             like it should. It releases past the midpoint so the cyan panels on
             the interface half stay saturated instead of going grey. */}
+        {/* One scrim per crop. The three images place the interface in three
+            different corners, so a single gradient cannot serve all of them:
+            the desktop cut needs density on the left, the tablet cut needs it
+            top-right where the panels sit directly behind the headline, and
+            the mobile cut needs it at the top with the interface left bright
+            at the bottom. */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-10 md:hidden"
+          style={{
+            background:
+              'linear-gradient(180deg, rgb(6 7 8 / 0.78) 0%, rgb(6 7 8 / 0.7) 45%, rgb(6 7 8 / 0.45) 100%),' +
+              'radial-gradient(ellipse 90% 40% at 50% -5%, rgb(34 211 238 / 0.1), transparent 60%)',
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 hidden md:block lg:hidden"
+          style={{
+            background:
+              // Heavier than the desktop scrim and biased to the top, because
+              // on this crop the panels sit behind the headline rather than
+              // beside it.
+              'linear-gradient(165deg, rgb(6 7 8 / 0.8) 0%, rgb(6 7 8 / 0.72) 45%, rgb(6 7 8 / 0.55) 100%),' +
+              'linear-gradient(90deg, rgb(6 7 8 / 0.3) 0%, rgb(6 7 8 / 0.12) 55%, rgb(6 7 8 / 0) 80%),' +
+              'radial-gradient(ellipse 70% 50% at 15% -8%, rgb(34 211 238 / 0.1), transparent 60%)',
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 hidden lg:block"
           style={{
             background:
               // Text scrim: extra density under the copy column only, fading
