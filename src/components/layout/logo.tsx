@@ -9,10 +9,13 @@ import { cn } from '@/lib/utils';
    wordmark, so the tagline could not simply be cropped off. */
 const RATIO = 600 / 133;
 
+/* Sized so the tagline still resolves. The lockup is ~4.5:1 with the tagline
+   occupying the bottom sixth, so anything under ~32px tall turns it into a
+   grey smear. */
 const sizes = {
-  sm: 26,
-  md: 30,
-  lg: 40,
+  sm: 30,
+  md: 36,
+  lg: 46,
 } as const;
 
 /**
@@ -27,12 +30,12 @@ const sizes = {
 export function Logo({
   className,
   size = 'md',
-  variant = 'compact',
+  variant = 'full',
   asLink = true,
 }: {
   className?: string;
   size?: keyof typeof sizes;
-  /** `full` keeps the SAFETY · CONTROL · TRUST tagline. */
+  /** `compact` drops the SAFETY · CONTROL · TRUST tagline. */
   variant?: 'compact' | 'full';
   asLink?: boolean;
 }) {

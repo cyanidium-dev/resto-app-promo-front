@@ -96,13 +96,9 @@ export function SiteHeader() {
               <Link
                 href="/"
                 aria-label="MySaniTrace"
-                className="group/logo relative inline-flex items-center rounded-sm transition-opacity duration-200 hover:opacity-90"
+                className="inline-flex items-center rounded-sm transition-opacity duration-200 hover:opacity-80"
               >
                 <Logo asLink={false} />
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 -bottom-1 h-px scale-x-0 bg-text/50 transition-transform duration-300 ease-out group-hover/logo:scale-x-100"
-                />
               </Link>
 
               <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
