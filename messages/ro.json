@@ -45,6 +45,7 @@
     },
     "problem": {
       "label": "PROBLEMA",
+      "imageAlt": "Camera frigorifică a unui restaurant, rafturi cu marfă etichetată",
       "title": "Cât control ai, de fapt, asupra operațiunilor zilnice?",
       "intro": "În multe afaceri verificările HACCP se completează încă pe hârtie, sarcinile se transmit verbal, iar managerul află despre probleme prea târziu.",
       "items": [
@@ -81,7 +82,8 @@
         { "key": "verify", "title": "Verifică", "text": "Vezi ce s-a făcut, când, de către cine și cu ce dovadă." },
         { "key": "improve", "title": "Îmbunătățește", "text": "Identifici problemele repetate și corectezi procesul." }
       ],
-      "caption": "Ciclul se repetă în fiecare tură, ca standardele să nu scape."
+      "caption": "Ciclul se repetă în fiecare tură, ca standardele să nu scape.",
+      "imageAlt": "Bucătăria unui hotel în timpul serviciului"
     },
     "architecture": {
       "label": "CUM FUNCȚIONEAZĂ",
@@ -101,6 +103,7 @@
     },
     "modules": {
       "label": "MODULE",
+      "imageAlt": "Bancul de lucru dintr-o brutărie înainte de începerea turei",
       "title": "Tot ce îți trebuie pentru controlul zilnic al operațiunilor",
       "items": [
         {
@@ -266,7 +269,7 @@
     "pricing": {
       "label": "PREȚURI ȘI IMPLEMENTARE",
       "title": "Prețul depinde de numărul de locații",
-      "intro": "Plătești lunar, pentru fiecare locație. Cu cât rețeaua este mai mare, cu atât costul per unitate scade. Configurarea se plătește o singură dată, la început.",
+      "intro": "Plătești lunar, pentru fiecare locație. Cu cât rețeaua este mai mare, cu atât costul per unitate scade.",
       "tiersLabel": "PLANURI",
       "tiersTitle": "Trei planuri, după mărimea rețelei",
       "perLocation": "per locație, pe lună",

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-import { PageHero } from '@/components/layout/page-hero';
 import { Container } from '@/components/ui/container';
 import { SectionLabel } from '@/components/ui/section-label';
 import { FinalCta } from '@/components/sections/final-cta';
@@ -16,7 +15,9 @@ type Step = { id: string; title: string; text: string };
  * the three tiers quote PLACEHOLDER figures from `pricingPlaceholder` in
  * config, not numbers the business has agreed. Get the real ones before launch.
  * The "how the price is built" cards that used to sit here are gone: the tier
- * table states the same thing with numbers attached.
+ * table states the same thing with numbers attached. So is the PageHero — it
+ * carried the same intro paragraph as the tier block directly beneath it.
+ * PricingTiers leads the page instead and carries the h1 and the breadcrumbs.
  */
 export async function generateMetadata({
   params,
@@ -47,19 +48,14 @@ export default async function PricingPage({
 
   return (
     <>
-      <PageHero
-        label={t('label')}
-        title={t('title')}
-        intro={t('intro')}
-        page="/pricing"
-        breadcrumbLabel={t('label')}
-        locale={locale as Locale} />
-
-      <PricingTiers labelId="01" />
+      <PricingTiers
+        labelId="00"
+        lead={{ page: '/pricing', locale: locale as Locale }}
+      />
 
       <section className="section-y border-b border-border bg-band">
         <Container>
-          <SectionLabel id="02">{t('processTitle')}</SectionLabel>
+          <SectionLabel id="01">{t('processTitle')}</SectionLabel>
           <ol className="mt-10 grid gap-px border border-border bg-border lg:grid-cols-4">
             {steps.map((step) => (
               <li key={step.id} className="bg-bg p-7">
@@ -80,7 +76,7 @@ export default async function PricingPage({
         </Container>
       </section>
 
-      <FinalCta labelId="03" />
+      <FinalCta labelId="02" />
     </>
   );
 }

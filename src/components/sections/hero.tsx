@@ -8,7 +8,6 @@ import { ImageSlot } from '@/components/ui/image-slot';
 import { LaptopFrame } from '@/components/ui/laptop-frame';
 import { PhoneFrame } from '@/components/ui/phone-frame';
 import { photos, screens } from '@/config/site';
-import { publicFileExists } from '@/lib/public-file';
 
 /**
  * The hero is dark in both themes: it sits on kitchen photography, so its
@@ -20,19 +19,6 @@ export async function Hero() {
   const t2 = await getTranslations('home.trust');
   const benefits = t.raw('benefits') as string[];
   const audiences = t2.raw('items') as string[];
-
-  // Only the desktop crop is guaranteed to exist; the others fall back to it.
-  const pick = (src: string) =>
-    publicFileExists(src) ? src : photos.heroSplit;
-
-  const heroArt = [
-    { src: pick(photos.heroSplitMobile), className: 'md:hidden object-center' },
-    {
-      src: pick(photos.heroSplitTablet),
-      className: 'hidden md:block lg:hidden object-center',
-    },
-    { src: photos.heroSplit, className: 'hidden lg:block object-left' },
-  ];
 
   return (
     <section className="border-b border-border">
@@ -47,71 +33,32 @@ export async function Hero() {
           same amount, so the photograph runs under the floating header plate
           rather than starting below it. */}
       <div className="relative isolate flex flex-col justify-center overflow-hidden lg:-mt-[var(--header-h,4.5rem)] lg:min-h-svh lg:pt-[var(--header-h,4.5rem)]">
-        {/* Art direction rather than one image scaled three ways: the desktop
-            frame reads left-to-right, which collapses on a phone. Each
-            breakpoint gets its own crop, and any missing file falls back to
-            the desktop one so the hero is never empty. */}
-        {heroArt.map(({ src, className }) => (
-          <Image
-            key={className}
-            src={src}
-            alt=""
-            aria-hidden
-            fill
-            priority
-            sizes="100vw"
-            className={`-z-20 object-cover ${className}`}
-          />
-        ))}
+        {/* Plain kitchen photography, one file at every breakpoint. The
+            three-way "kitchen dissolving into the UI" crop that sat here put a
+            second interface behind a headline that already has a laptop and a
+            phone under it, and the hero read as two product shots fighting.
+            A quiet room behind the type does the job the photograph is for. */}
+        <Image
+          src={photos.kitchen}
+          alt=""
+          aria-hidden
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
 
-        {/* Directional scrim. Much lighter than a scrim over ordinary
-            photography needs to be, because this source is already near-black:
-            the previous 94% over the left crushed the kitchen out of the frame
-            entirely. It only has to carry the headline, and against a
-            background sitting around RGB 25 that takes far less than it looks
-            like it should. It releases past the midpoint so the cyan panels on
-            the interface half stay saturated instead of going grey. */}
-        {/* One scrim per crop. The three images place the interface in three
-            different corners, so a single gradient cannot serve all of them:
-            the desktop cut needs density on the left, the tablet cut needs it
-            top-right where the panels sit directly behind the headline, and
-            the mobile cut needs it at the top with the interface left bright
-            at the bottom. */}
+        {/* One directional scrim, heavy on the left where the copy sits and
+            releasing to 55% on the right so the room stays legible as a room.
+            This source is ordinary photography, not the near-black split
+            render, so it needs far more density than that crop did. */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 md:hidden"
+          className="absolute inset-0 -z-10"
           style={{
             background:
-              'linear-gradient(180deg, rgb(6 7 8 / 0.78) 0%, rgb(6 7 8 / 0.7) 45%, rgb(6 7 8 / 0.45) 100%),' +
-              'radial-gradient(ellipse 90% 40% at 50% -5%, rgb(34 211 238 / 0.1), transparent 60%)',
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 hidden md:block lg:hidden"
-          style={{
-            background:
-              // Heavier than the desktop scrim and biased to the top, because
-              // on this crop the panels sit behind the headline rather than
-              // beside it.
-              'linear-gradient(165deg, rgb(6 7 8 / 0.8) 0%, rgb(6 7 8 / 0.72) 45%, rgb(6 7 8 / 0.55) 100%),' +
-              'linear-gradient(90deg, rgb(6 7 8 / 0.3) 0%, rgb(6 7 8 / 0.12) 55%, rgb(6 7 8 / 0) 80%),' +
-              'radial-gradient(ellipse 70% 50% at 15% -8%, rgb(34 211 238 / 0.1), transparent 60%)',
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 hidden lg:block"
-          style={{
-            background:
-              // Text scrim: extra density under the copy column only, fading
-              // out by 58%. Measured contrast over the steel highlights was
-              // 2.4:1 for the microcopy without it — below AA. Localising it
-              // buys the contrast back without flattening the whole frame.
-              'linear-gradient(90deg, rgb(6 7 8 / 0.34) 0%, rgb(6 7 8 / 0.26) 35%, rgb(6 7 8 / 0) 58%),' +
-              // Base directional scrim.
-              'linear-gradient(100deg, rgb(6 7 8 / 0.62) 0%, rgb(6 7 8 / 0.52) 40%, rgb(6 7 8 / 0.42) 65%, rgb(6 7 8 / 0.34) 100%),' +
-              'radial-gradient(ellipse 70% 60% at 10% -10%, rgb(34 211 238 / 0.12), transparent 60%)',
+              'linear-gradient(100deg, rgb(6 7 8 / 0.95) 0%, rgb(6 7 8 / 0.88) 42%, rgb(6 7 8 / 0.55) 100%),' +
+              'radial-gradient(ellipse 80% 60% at 15% -10%, rgb(34 211 238 / 0.16), transparent 60%)',
           }}
         />
 

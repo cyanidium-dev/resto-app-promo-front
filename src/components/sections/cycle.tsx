@@ -4,6 +4,8 @@ import { RotateCcw } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { SectionLabel } from '@/components/ui/section-label';
 import { Atmosphere } from '@/components/ui/atmosphere';
+import { ImageSlot } from '@/components/ui/image-slot';
+import { photos } from '@/config/site';
 
 type Step = { key: string; title: string; text: string };
 
@@ -57,6 +59,18 @@ export async function Cycle() {
             {t('caption')}
           </p>
         </div>
+
+        {/* A wide band rather than the side-by-side crop used in the problem
+            and module sections: three identical picture-beside-heading rows on
+            one page read as the same block repeated. It closes the section on
+            the shift the cycle is describing. */}
+        <ImageSlot
+          src={photos.hotel}
+          alt={t('imageAlt')}
+          ratio="21 / 9"
+          sizes="100vw"
+          className="mt-14"
+        />
       </Container>
     </section>
   );

@@ -45,6 +45,7 @@
     },
     "problem": {
       "label": "THE PROBLEM",
+      "imageAlt": "A restaurant cold room, shelves of labelled stock",
       "title": "How much control do you really have over daily operations?",
       "intro": "In many businesses HACCP checks are still completed on paper, tasks are passed on verbally, and managers hear about problems too late.",
       "items": [
@@ -81,7 +82,8 @@
         { "key": "verify", "title": "Verify", "text": "See what was done, when, by whom and with what evidence." },
         { "key": "improve", "title": "Improve", "text": "Spot recurring problems and fix the process behind them." }
       ],
-      "caption": "The cycle repeats every shift, so standards do not slip between them."
+      "caption": "The cycle repeats every shift, so standards do not slip between them.",
+      "imageAlt": "A hotel kitchen during service"
     },
     "architecture": {
       "label": "HOW IT WORKS",
@@ -101,6 +103,7 @@
     },
     "modules": {
       "label": "MODULES",
+      "imageAlt": "A bakery bench before the shift starts",
       "title": "Everything you need for day-to-day operational control",
       "items": [
         {
@@ -266,7 +269,7 @@
     "pricing": {
       "label": "PRICING AND IMPLEMENTATION",
       "title": "Pricing depends on the number of locations",
-      "intro": "You pay monthly, per location. The larger the network, the lower the rate per unit. Setup is charged once, at the start.",
+      "intro": "You pay monthly, per location. The larger the network, the lower the rate per unit.",
       "tiersLabel": "PLANS",
       "tiersTitle": "Three plans, by the size of your network",
       "perLocation": "per location, per month",

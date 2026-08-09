@@ -3,7 +3,9 @@ import { getTranslations } from 'next-intl/server';
 import { Container } from '@/components/ui/container';
 import { SectionLabel } from '@/components/ui/section-label';
 import { Atmosphere } from '@/components/ui/atmosphere';
+import { ImageSlot } from '@/components/ui/image-slot';
 import { ComparisonTable } from '@/components/sections/comparison';
+import { photos } from '@/config/site';
 
 type Item = { id: string; title: string; text: string };
 
@@ -25,9 +27,20 @@ export async function Problem() {
       <Container>
         <SectionLabel id="01">{t('label')}</SectionLabel>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-          <h2 className="text-h1 font-bold">{t('title')}</h2>
-          <p className="text-body-lg text-text-muted lg:pt-2">{t('intro')}</p>
+        {/* A cold room rather than a screenshot: this section is about the
+            place the paperwork fails, and the product has no business appearing
+            before the problem has been stated. */}
+        <div className="mt-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <h2 className="text-h1 font-bold">{t('title')}</h2>
+            <p className="mt-5 text-body-lg text-text-muted">{t('intro')}</p>
+          </div>
+          <ImageSlot
+            src={photos.coldRoom}
+            alt={t('imageAlt')}
+            ratio="3 / 2"
+            sizes="(min-width: 1024px) 560px, 100vw"
+          />
         </div>
 
         <ul className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2">

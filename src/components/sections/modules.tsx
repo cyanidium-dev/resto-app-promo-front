@@ -15,6 +15,8 @@ import { Container } from '@/components/ui/container';
 import { SectionLabel } from '@/components/ui/section-label';
 import { Atmosphere } from '@/components/ui/atmosphere';
 import { ButtonLink } from '@/components/ui/button';
+import { ImageSlot } from '@/components/ui/image-slot';
+import { photos } from '@/config/site';
 
 type Item = { id: string; title: string; text: string };
 
@@ -46,9 +48,23 @@ export async function Modules({ limit }: { limit?: number } = {}) {
       <Container>
         <SectionLabel id="04">{t('label')}</SectionLabel>
 
-        <h2 className="mt-10 max-w-3xl text-h1 font-bold">{t('title')}</h2>
+        {/* Photograph on the left, opposite the one in the problem section, so
+            the two picture blocks on the way down the page do not read as the
+            same layout twice. */}
+        <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <ImageSlot
+            src={photos.bakery}
+            alt={t('imageAlt')}
+            ratio="3 / 2"
+            sizes="(min-width: 1024px) 520px, 100vw"
+            className="lg:order-1"
+          />
+          <h2 className="text-h1 font-bold lg:order-2">{t('title')}</h2>
+        </div>
 
-        <ul className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        {/* Three columns, not four: the homepage shows six of the eight, and a
+            four-column track leaves two dead cells in the second row. */}
+        <ul className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => {
             const Icon = icons[index] ?? ClipboardCheck;
             return (

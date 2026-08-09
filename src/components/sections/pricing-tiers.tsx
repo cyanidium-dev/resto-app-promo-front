@@ -6,7 +6,9 @@ import { SectionLabel } from '@/components/ui/section-label';
 import { Atmosphere } from '@/components/ui/atmosphere';
 import { Button } from '@/components/ui/button';
 import { DemoDialog } from '@/components/forms/demo-dialog';
+import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { pricingPlaceholder, type PricingTierId } from '@/config/site';
+import type { AppPathname, Locale } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 
 type Tier = {
@@ -26,20 +28,63 @@ type Tier = {
  * The middle tier carries the emphasis: a full-strength border and the
  * "most chosen" flag, no accent fill. The accent is reserved for CTAs, and
  * three cards competing for it would flatten the hierarchy the flag creates.
+ *
+ * `lead` makes this block open a page instead of sitting inside one. /pricing
+ * used to stack a PageHero on top of it, and the two repeated the same intro
+ * paragraph verbatim two hundred pixels apart, under two headings that said
+ * the same thing. The block absorbs the hero's jobs — breadcrumbs, the h1 and
+ * the run-up under the floating header — rather than being introduced by one.
  */
-export async function PricingTiers({ labelId }: { labelId: string }) {
+export async function PricingTiers({
+  labelId,
+  lead,
+}: {
+  labelId: string;
+  lead?: { page: AppPathname; locale: Locale };
+}) {
   const t = await getTranslations('pages.pricing');
   const tiers = t.raw('tiers') as Tier[];
   const { currency, monthlyPerLocation, setupFrom } = pricingPlaceholder;
+  const Heading = lead ? 'h1' : 'h2';
 
   return (
-    <section className="section-y relative isolate border-b border-border">
-      <Atmosphere variant="glow" glow="bl" />
+    <section
+      className={cn(
+        'relative isolate border-b border-border',
+        /* Explicit padding rather than `section-y` in the lead case: the
+           pull-up needs its own padding-top, and a longhand override of the
+           utility's padding-block shorthand is decided by stylesheet order. */
+        lead
+          ? 'pt-8 pb-16 md:pt-10 md:pb-20 lg:-mt-[var(--header-h,4.5rem)] lg:pt-[calc(var(--header-h,4.5rem)+4rem)] lg:pb-24'
+          : 'section-y',
+      )}
+    >
+      <Atmosphere
+        variant={lead ? 'both' : 'glow'}
+        glow={lead ? 'tl' : 'bl'}
+        grid="top"
+      />
       <Container>
-        <SectionLabel id={labelId}>{t('tiersLabel')}</SectionLabel>
+        {lead && (
+          <div className="mb-8">
+            <Breadcrumbs
+              page={lead.page}
+              label={t('label')}
+              locale={lead.locale}
+            />
+          </div>
+        )}
+
+        {/* Leading the page, the label names the page; inside one, it names
+            the block. */}
+        <SectionLabel id={labelId}>
+          {lead ? t('label') : t('tiersLabel')}
+        </SectionLabel>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
-          <h2 className="text-h1 font-bold">{t('tiersTitle')}</h2>
+          <Heading className="text-h1 font-bold">
+            {lead ? t('title') : t('tiersTitle')}
+          </Heading>
           <p className="text-body-lg text-text-muted lg:pt-2">{t('intro')}</p>
         </div>
 
