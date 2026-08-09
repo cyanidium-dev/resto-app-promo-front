@@ -17,7 +17,7 @@ export async function MultiLocation() {
     <section className="section-y relative isolate border-b border-border">
       <Atmosphere variant="glow" glow="center" />
       <Container>
-        <SectionLabel id="08">{t('label')}</SectionLabel>
+        <SectionLabel id="05">{t('label')}</SectionLabel>
 
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
           <div>

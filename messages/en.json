@@ -156,9 +156,7 @@
         { "without": "Verbally assigned tasks", "with": "Named responsibilities" },
         { "without": "Problems identified too late", "with": "Immediate alerts" },
         { "without": "Evidence that is hard to verify", "with": "Confirmations and photographs" },
-        { "without": "Scattered documents", "with": "Centralised information" },
-        { "without": "Control only from the location", "with": "Remote monitoring" },
-        { "without": "Procedures applied inconsistently", "with": "Consistent standards" }
+        { "without": "Control only from the location", "with": "Remote monitoring" }
       ]
     },
     "multiLocation": {
@@ -186,15 +184,13 @@
       "imageAlt": "Employee app screens: checklist and temperature entry"
     },
     "local": {
-      "label": "LOCAL ADVANTAGE",
       "title": "Local team. Local requirements.",
       "intro": "Standardised international apps will not give you this kind of support. We work with HoReCa operations in the region and understand how an inspection actually goes.",
       "items": [
         { "title": "Configured around your processes", "text": "We adapt the forms and responsibilities to how your team works, not the other way round." },
         { "title": "Support in your language", "text": "We answer in Romanian, English or Russian, during your working hours." },
         { "title": "Help during inspections", "text": "We help you prepare the documentation when you have a control visit." }
-      ],
-      "imageAlt": "A professional kitchen before the shift begins"
+      ]
     },
     "implementation": {
       "label": "IMPLEMENTATION",
@@ -269,16 +265,51 @@
     },
     "pricing": {
       "label": "PRICING AND IMPLEMENTATION",
-      "title": "Pricing depends on the number of locations and the configuration",
-      "intro": "We do not sell a fixed package. We agree the configuration once we understand how your team works, then give you a clear price with no hidden costs.",
-      "modelTitle": "How the price is built",
-      "modelItems": [
-        { "title": "Number of locations", "text": "The monthly cost is calculated per location. The larger the network, the lower the cost per unit." },
-        { "title": "Active modules", "text": "You pay for the modules you use. Start with the core checks and expand later." },
-        { "title": "Initial setup", "text": "A one-off at the start: adapting the forms, training the team and going live." }
+      "title": "Pricing depends on the number of locations",
+      "intro": "You pay monthly, per location. The larger the network, the lower the rate per unit. Setup is charged once, at the start.",
+      "tiersLabel": "PLANS",
+      "tiersTitle": "Three plans, by the size of your network",
+      "perLocation": "per location, per month",
+      "popular": "Most chosen",
+      "tierCta": "Request a demo",
+      "setupNote": "Plus a one-off setup from {price}: adapting the forms, training the team and going live.",
+      "tiers": [
+        {
+          "id": "solo",
+          "name": "Single site",
+          "audience": "1 location",
+          "features": [
+            "All eight modules",
+            "Up to 15 staff",
+            "On-site team training",
+            "Email support"
+          ]
+        },
+        {
+          "id": "network",
+          "name": "Network",
+          "audience": "2–20 locations",
+          "features": [
+            "Everything in Single site",
+            "Location-by-location comparison",
+            "Unlimited staff",
+            "Phone support"
+          ]
+        },
+        {
+          "id": "scale",
+          "name": "Scale",
+          "audience": "20+ locations",
+          "features": [
+            "Everything in Network",
+            "A named account manager",
+            "Help during inspections",
+            "Configured around your processes"
+          ]
+        }
       ],
       "processTitle": "How implementation works",
-      "note": "We send the offer after a first conversation, where we assess the number of locations, your processes and the level of customisation required."
+      "note": "Prices exclude VAT. We send the exact offer after a first conversation, where we assess the number of locations, your processes and the level of customisation required."
     },
     "contact": {
       "label": "CONTACT",

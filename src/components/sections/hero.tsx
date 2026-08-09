@@ -17,7 +17,9 @@ import { publicFileExists } from '@/lib/public-file';
  */
 export async function Hero() {
   const t = await getTranslations('home.hero');
+  const t2 = await getTranslations('home.trust');
   const benefits = t.raw('benefits') as string[];
+  const audiences = t2.raw('items') as string[];
 
   // Only the desktop crop is guaranteed to exist; the others fall back to it.
   const pick = (src: string) =>
@@ -200,6 +202,31 @@ export async function Hero() {
                 chamfer={false}
               />
             </PhoneFrame>
+          </div>
+
+          {/* Was a section of its own directly beneath the hero. It is one line
+              of text, so a full section band around it bought nothing but a
+              scroll stop. It stays in the light band rather than moving up into
+              the photo: the dark band is locked to one viewport, and anything
+              added there comes straight out of the headline's breathing room. */}
+          <div className="mt-16 border-t border-border pt-8 md:mt-20">
+            <h2 className="font-mono text-label uppercase text-text-subtle">
+              {t2('title')}
+            </h2>
+            <ul className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-3">
+              {audiences.map((item, index) => (
+                <li key={item} className="flex items-center gap-3">
+                  {index > 0 && (
+                    <span aria-hidden className="text-text-subtle">
+                      ·
+                    </span>
+                  )}
+                  <span className="text-[0.9375rem] text-text-muted">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </div>

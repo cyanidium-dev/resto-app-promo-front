@@ -26,6 +26,10 @@ const sizes = {
  * would throw the brand colour away entirely — so the light-theme file is a
  * recolour that maps only the near-white pixels to near-black and leaves the
  * cyan alone.
+ *
+ * Both files sit in the DOM with CSS deciding which shows, because the theme
+ * is only known on the client. Neither is marked `priority`: they are small,
+ * and preloading two logos would compete with the hero image for the LCP.
  */
 export function Logo({
   className,
@@ -50,7 +54,6 @@ export function Logo({
         alt={siteConfig.name}
         width={width}
         height={height}
-        priority
         className="block dark:hidden"
       />
       <Image
@@ -59,7 +62,6 @@ export function Logo({
         aria-hidden
         width={width}
         height={height}
-        priority
         className="hidden dark:block"
       />
     </>

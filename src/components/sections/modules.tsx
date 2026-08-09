@@ -29,15 +29,22 @@ const icons = [
   FileText,
 ];
 
-export async function Modules() {
+/**
+ * `limit` trims the grid without touching the copy deck: the homepage shows the
+ * first six and sends the reader to /platform for the rest, which is what the
+ * CTA underneath is for. /platform still walks all eight, so the "eight modules"
+ * promise in its heading stays true.
+ */
+export async function Modules({ limit }: { limit?: number } = {}) {
   const t = await getTranslations('home.modules');
-  const items = t.raw('items') as Item[];
+  const all = t.raw('items') as Item[];
+  const items = limit ? all.slice(0, limit) : all;
 
   return (
     <section className="section-y relative isolate border-b border-border">
       <Atmosphere variant="glow" glow="bl" />
       <Container>
-        <SectionLabel id="06">{t('label')}</SectionLabel>
+        <SectionLabel id="04">{t('label')}</SectionLabel>
 
         <h2 className="mt-10 max-w-3xl text-h1 font-bold">{t('title')}</h2>
 

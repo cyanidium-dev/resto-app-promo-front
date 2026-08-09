@@ -27,6 +27,31 @@ export const siteConfig = {
   launchYear: 2026,
 } as const;
 
+/*
+ * PLACEHOLDER FIGURES — invented, not quoted by the client (docs/TZ.md §9,
+ * question 3). They exist so the pricing block can be designed, laid out and
+ * reviewed against real numbers instead of dashes; every one of them must be
+ * replaced before launch. Publishing a price the business will not honour is a
+ * commercial problem, not a cosmetic one.
+ *
+ * The shape follows the pricing copy that was already on the site: billing is
+ * per location per month, and the rate per location falls as the network grows.
+ * Changing a figure here changes it on the homepage and on /pricing at once.
+ */
+export const pricingPlaceholder = {
+  currency: '€',
+  /** Keyed by the tier ids used in messages under `pages.pricing.tiers`. */
+  monthlyPerLocation: {
+    solo: 49,
+    network: 39,
+    scale: 29,
+  },
+  /** One-off configuration and training, charged at the start. */
+  setupFrom: 290,
+} as const;
+
+export type PricingTierId = keyof typeof pricingPlaceholder.monthlyPerLocation;
+
 /** Built by. Same treatment as the nbyg footer. */
 export const credits = {
   webBond: { url: 'https://webbond.dk/', logo: '/images/footer/WebBondLogo.webp' },

@@ -156,9 +156,7 @@
         { "without": "Sarcini transmise verbal", "with": "Responsabilități atribuite nominal" },
         { "without": "Probleme identificate prea târziu", "with": "Alerte și notificări imediate" },
         { "without": "Dovezi greu de verificat", "with": "Confirmări și fotografii" },
-        { "without": "Documente împrăștiate", "with": "Informație centralizată" },
-        { "without": "Control doar din locație", "with": "Monitorizare de la distanță" },
-        { "without": "Proceduri aplicate inconsecvent", "with": "Standarde uniforme" }
+        { "without": "Control doar din locație", "with": "Monitorizare de la distanță" }
       ]
     },
     "multiLocation": {
@@ -186,15 +184,13 @@
       "imageAlt": "Ecrane din aplicația pentru angajați: listă de verificare și înregistrarea temperaturii"
     },
     "local": {
-      "label": "AVANTAJ LOCAL",
       "title": "Echipă locală. Cerințe locale.",
       "intro": "Aplicațiile internaționale standardizate nu îți oferă acest tip de sprijin. Lucrăm cu operațiuni HoReCa din regiune și înțelegem cum se desfășoară un control în practică.",
       "items": [
         { "title": "Configurare pe procesele tale", "text": "Adaptăm formularele și responsabilitățile la modul în care lucrează echipa ta, nu invers." },
         { "title": "Suport în limba ta", "text": "Răspundem în română, engleză sau rusă, în timpul programului tău de lucru." },
         { "title": "Sprijin la control", "text": "Te ajutăm să pregătești documentația atunci când ai o inspecție." }
-      ],
-      "imageAlt": "Bucătărie profesională înainte de începerea turei"
+      ]
     },
     "implementation": {
       "label": "IMPLEMENTARE",
@@ -269,16 +265,51 @@
     },
     "pricing": {
       "label": "PREȚURI ȘI IMPLEMENTARE",
-      "title": "Prețul depinde de numărul de locații și de configurație",
-      "intro": "Nu vindem un pachet fix. Stabilim configurația după ce înțelegem cum lucrează echipa ta, apoi îți dăm un preț clar, fără costuri ascunse.",
-      "modelTitle": "Cum se formează prețul",
-      "modelItems": [
-        { "title": "Număr de locații", "text": "Costul lunar se calculează pe locație. Cu cât rețeaua este mai mare, cu atât costul per unitate scade." },
-        { "title": "Module active", "text": "Plătești pentru modulele pe care le folosești. Poți începe cu verificările de bază și extinde ulterior." },
-        { "title": "Configurare inițială", "text": "O singură dată, la început: adaptarea formularelor, instruirea echipei și punerea în funcțiune." }
+      "title": "Prețul depinde de numărul de locații",
+      "intro": "Plătești lunar, pentru fiecare locație. Cu cât rețeaua este mai mare, cu atât costul per unitate scade. Configurarea se plătește o singură dată, la început.",
+      "tiersLabel": "PLANURI",
+      "tiersTitle": "Trei planuri, după mărimea rețelei",
+      "perLocation": "per locație, pe lună",
+      "popular": "Cel mai des ales",
+      "tierCta": "Solicită demo",
+      "setupNote": "Plus o configurare inițială de la {price}: adaptarea formularelor, instruirea echipei și punerea în funcțiune.",
+      "tiers": [
+        {
+          "id": "solo",
+          "name": "O locație",
+          "audience": "1 locație",
+          "features": [
+            "Toate cele opt module",
+            "Până la 15 angajați",
+            "Instruirea echipei la fața locului",
+            "Suport pe e-mail"
+          ]
+        },
+        {
+          "id": "network",
+          "name": "Rețea",
+          "audience": "2–20 locații",
+          "features": [
+            "Tot ce include O locație",
+            "Comparație între locații",
+            "Fără limită de angajați",
+            "Suport telefonic"
+          ]
+        },
+        {
+          "id": "scale",
+          "name": "Scalare",
+          "audience": "peste 20 de locații",
+          "features": [
+            "Tot ce include Rețea",
+            "Manager de cont dedicat",
+            "Sprijin la controale",
+            "Configurare pe procesele tale"
+          ]
+        }
       ],
       "processTitle": "Cum decurge implementarea",
-      "note": "Îți transmitem oferta după prima discuție, în care evaluăm împreună numărul de locații, procesele și nivelul de personalizare necesar."
+      "note": "Prețurile nu includ TVA. Îți transmitem oferta exactă după prima discuție, în care evaluăm împreună numărul de locații, procesele și nivelul de personalizare necesar."
     },
     "contact": {
       "label": "CONTACT",

@@ -28,7 +28,7 @@ export async function Architecture() {
     <section className="section-y relative isolate border-b border-border">
       <Atmosphere variant="both" glow="br" grid="left" />
       <Container>
-        <SectionLabel id="05">{t('label')}</SectionLabel>
+        <SectionLabel id="03">{t('label')}</SectionLabel>
 
         <div className="mt-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Diagram */}

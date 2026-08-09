@@ -104,10 +104,16 @@ export default async function LocaleLayout({
       className={`${unbounded.variable} ${inter.variable} ${jetBrainsMono.variable}`}
     >
       <body className="min-h-dvh text-text antialiased">
+        {/* Dark by default, and deliberately not following the OS. The hero
+            photography, the product screenshots and the device shells are all
+            dark-first, so a visitor arriving on the light theme sees the
+            weaker version of the design. System detection is off rather than
+            merely overridden, so the first paint is deterministic — the
+            toggle still switches, and the choice is remembered. */}
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <NextIntlClientProvider>

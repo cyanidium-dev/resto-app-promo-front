@@ -20,7 +20,7 @@ export async function Cycle() {
     <section className="section-y relative isolate border-b border-border bg-band">
       <Atmosphere variant="both" glow="br" grid="right" />
       <Container>
-        <SectionLabel id="04">{t('label')}</SectionLabel>
+        <SectionLabel id="02">{t('label')}</SectionLabel>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <h2 className="text-h1 font-bold">{t('title')}</h2>
