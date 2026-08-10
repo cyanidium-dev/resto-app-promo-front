@@ -24,12 +24,12 @@ export async function Cycle() {
       <Container>
         <SectionLabel id="02">{t('label')}</SectionLabel>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <div className="reveal-scroll mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <h2 className="text-h1 font-bold">{t('title')}</h2>
           <p className="text-body-lg text-text-muted lg:pt-2">{t('intro')}</p>
         </div>
 
-        <ol className="mt-14 grid gap-px border border-border bg-border lg:grid-cols-5">
+        <ol className="reveal-scroll mt-14 grid gap-px border border-border bg-border lg:grid-cols-5">
           {steps.map((step, index) => (
             <li key={step.key} className="bg-bg p-6">
               <div className="flex items-center gap-2.5">
@@ -50,7 +50,7 @@ export async function Cycle() {
 
         {/* The loop back to step 01 — what makes this a cycle rather than
             a five-step onboarding. */}
-        <div className="flex items-center gap-3 border-x border-b border-border bg-bg px-6 py-4">
+        <div className="reveal-scroll flex items-center gap-3 border-x border-b border-border bg-bg px-6 py-4">
           <RotateCcw
             className="size-4 shrink-0 text-text-subtle"
             aria-hidden
@@ -69,7 +69,7 @@ export async function Cycle() {
           alt={t('imageAlt')}
           ratio="21 / 9"
           sizes="100vw"
-          className="mt-14"
+          className="reveal-scroll mt-14"
         />
       </Container>
     </section>

@@ -10,9 +10,15 @@ import { PhoneFrame } from '@/components/ui/phone-frame';
 import { photos, screens } from '@/config/site';
 
 /**
- * The hero is dark in both themes: it sits on kitchen photography, so its
- * text colours are hard-coded light values rather than theme tokens — a
- * token-driven hero would turn black-on-black when the light theme kicks in.
+ * The hero used to be dark in both themes, with hard-coded light text, because
+ * it sits on kitchen photography. That left the light theme carrying a
+ * near-black slab across the fold, which is the one thing that stopped it
+ * reading as a light theme at all.
+ *
+ * So the scrim is now per-theme — near-black on dark, white on light — and the
+ * type went back to theme tokens. Tokens are what make this work: `--text` is
+ * off-white on dark and near-black on light, so one set of classes serves both
+ * scrims. The photograph underneath is the same file either way.
  */
 export async function Hero() {
   const t = await getTranslations('home.hero');
@@ -48,13 +54,24 @@ export async function Hero() {
           className="-z-20 object-cover"
         />
 
-        {/* One directional scrim, heavy on the left where the copy sits and
-            releasing to 55% on the right so the room stays legible as a room.
-            This source is ordinary photography, not the near-black split
-            render, so it needs far more density than that crop did. */}
+        {/* One directional scrim per theme, heavy on the left where the copy
+            sits and releasing on the right so the room stays legible as a room.
+            Same geometry both times, opposite colour: the photograph is dark,
+            so on light the veil has to carry nearly to white under the headline
+            or dark type lands on a mid-grey. It measures out around #ebebeb at
+            the left edge, which is 16:1 against the body colour. */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-10 dark:hidden"
+          style={{
+            background:
+              'linear-gradient(100deg, rgb(255 255 255 / 0.95) 0%, rgb(255 255 255 / 0.9) 42%, rgb(255 255 255 / 0.66) 100%),' +
+              'radial-gradient(ellipse 80% 60% at 15% -10%, rgb(14 116 144 / 0.12), transparent 60%)',
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 hidden dark:block"
           style={{
             background:
               'linear-gradient(100deg, rgb(6 7 8 / 0.95) 0%, rgb(6 7 8 / 0.88) 42%, rgb(6 7 8 / 0.55) 100%),' +
@@ -66,15 +83,15 @@ export async function Hero() {
             the floor for short screens — keep it small or the copy stops
             fitting inside one viewport on a 1366×768 laptop. */}
         <Container className="pt-20 pb-16 md:pt-28 md:pb-24 lg:py-8">
-          <p className="font-mono text-label uppercase text-[#7ee8f7]">
+          <p className="font-mono text-label uppercase text-accent">
             {t('eyebrow')}
           </p>
 
-          <h1 className="mt-6 max-w-3xl text-display font-bold text-[#fafafa]">
+          <h1 className="mt-6 max-w-3xl text-display font-bold text-text">
             {t('title')}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-body-lg text-[#c9ccd1]">
+          <p className="mt-6 max-w-2xl text-body-lg text-text-muted">
             {t('subtitle')}
           </p>
 
@@ -82,27 +99,32 @@ export async function Hero() {
             <DemoDialog
               trigger={<Button size="lg">{t('primaryCta')}</Button>}
             />
-            <ButtonLink href="/platform" size="lg" variant="onImage">
+            {/* `secondary` rather than `onImage`: the scrim now follows the
+                theme, so the outline button can follow it too. `onImage`
+                hard-codes white and would vanish on the light scrim. */}
+            <ButtonLink href="/platform" size="lg" variant="secondary">
               {t('secondaryCta')}
             </ButtonLink>
           </div>
 
-          <p className="mt-5 font-mono text-[0.8125rem] text-[#9aa0a6]">
+          <p className="mt-5 font-mono text-[0.8125rem] text-text-subtle">
             {t('microcopy')}
           </p>
 
           {/* Readout strip — the four claims as instrument labels rather than a
-              row of icons in circles. */}
-          <ul className="mt-14 grid grid-cols-2 gap-px border-t border-white/15 bg-white/15 lg:grid-cols-4">
+              row of icons in circles. The cells are the page surface at 70%, so
+              the photograph stays faintly visible through them on either theme
+              rather than being blocked out by a solid panel. */}
+          <ul className="mt-14 grid grid-cols-2 gap-px border-t border-border bg-border lg:grid-cols-4">
             {benefits.map((benefit, index) => (
               <li
                 key={benefit}
-                className="bg-[#08090a]/70 px-4 pt-4 pb-5 backdrop-blur-sm"
+                className="bg-bg/70 px-4 pt-4 pb-5 backdrop-blur-sm"
               >
-                <span className="font-mono text-label text-[#7ee8f7]">
+                <span className="font-mono text-label text-accent">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <p className="mt-2 text-[0.9375rem] leading-snug text-[#fafafa]">
+                <p className="mt-2 text-[0.9375rem] leading-snug text-text">
                   {benefit}
                 </p>
               </li>
@@ -114,7 +136,9 @@ export async function Hero() {
       {/* The product shot leaves the photo behind and sits on the page surface
           inside a device shell, so it reads as an interface being used rather
           than as a flat panel blending into the section. */}
-      <div className="relative bg-bg pt-14 md:pt-20">
+      {/* Clipped for the same reason as the adoption section: the phone slides
+          in from the right and would otherwise widen the page while it does. */}
+      <div className="relative overflow-x-clip bg-bg pt-14 md:pt-20">
         <Container className="pb-16 md:pb-24">
           {/* Manager's view and the employee's view, arriving from opposite
               sides — the two halves of the product meeting in one frame.

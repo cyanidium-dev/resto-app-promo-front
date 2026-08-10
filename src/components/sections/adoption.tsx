@@ -25,14 +25,20 @@ export async function Adoption() {
   const items = t.raw('items') as Item[];
   const localItems = local.raw('items') as Item[];
 
+  /* `overflow-x-clip`, not `overflow-hidden`: the phones start their reveal
+     offset to the right of where they land, and at container widths where they
+     already sit flush to the right edge that offset became real page width — a
+     phantom gap and a horizontal scrollbar across the whole site. `clip`
+     removes it without creating a scroll container, so it cannot break sticky
+     positioning the way `hidden` would. */
   return (
-    <section className="section-y relative isolate border-b border-border bg-band">
+    <section className="section-y relative isolate overflow-x-clip border-b border-border bg-band">
       <Atmosphere variant="both" glow="tr" grid="left" />
       <Container>
         <SectionLabel id="06">{t('label')}</SectionLabel>
 
         <div className="mt-10 grid items-start gap-12 lg:grid-cols-[1fr_auto] lg:gap-16">
-          <div>
+          <div className="reveal-scroll">
             <h2 className="max-w-xl text-h1 font-bold">{t('title')}</h2>
             <p className="mt-5 max-w-xl text-body-lg text-text-muted">
               {t('intro')}
@@ -61,7 +67,7 @@ export async function Adoption() {
               height by default, and the second phone's mt-10 offset made that
               row taller than the first phone, padding it out with ~33px of
               dead space under the screenshot. */}
-          <div className="flex items-start gap-4 justify-self-center lg:justify-self-end">
+          <div className="slide-from-right flex items-start gap-4 justify-self-center lg:justify-self-end">
             <PhoneFrame className="w-[150px] shrink-0 sm:w-[180px]">
               <ImageSlot
                 src={screens.mobileChecklist}
@@ -87,7 +93,7 @@ export async function Adoption() {
 
         {/* Local advantage, folded in: the same objection answered by the team
             behind the app rather than by the app. */}
-        <div className="mt-16 border-t border-border pt-10">
+        <div className="reveal-scroll mt-16 border-t border-border pt-10">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
             <h3 className="text-h2 font-bold">{local('title')}</h3>
             <p className="text-[0.9375rem] leading-relaxed text-text-muted lg:pt-1.5">

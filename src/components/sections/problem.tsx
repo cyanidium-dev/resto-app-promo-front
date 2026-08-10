@@ -30,7 +30,7 @@ export async function Problem() {
         {/* A cold room rather than a screenshot: this section is about the
             place the paperwork fails, and the product has no business appearing
             before the problem has been stated. */}
-        <div className="mt-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="reveal-scroll mt-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="text-h1 font-bold">{t('title')}</h2>
             <p className="mt-5 text-body-lg text-text-muted">{t('intro')}</p>
@@ -43,7 +43,10 @@ export async function Problem() {
           />
         </div>
 
-        <ul className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2">
+        {/* The grid animates as one block, not cell by cell: the hairlines
+            between cards are the `bg-border` showing through a 1px gap, and
+            moving the cards independently tears them open mid-flight. */}
+        <ul className="reveal-scroll mt-14 grid gap-px border border-border bg-border sm:grid-cols-2">
           {items.map((item) => (
             <li key={item.id} className="bg-bg p-7 md:p-8">
               <span className="font-mono text-label text-text-subtle">
@@ -57,8 +60,10 @@ export async function Problem() {
           ))}
         </ul>
 
-        <h3 className="mt-20 max-w-2xl text-h2 font-bold">{c('title')}</h3>
-        <ComparisonTable className="mt-8" />
+        <h3 className="reveal-scroll mt-20 max-w-2xl text-h2 font-bold">
+          {c('title')}
+        </h3>
+        <ComparisonTable className="reveal-scroll mt-8" />
       </Container>
     </section>
   );

@@ -42,6 +42,11 @@
   --glow-a: rgb(14 116 144 / 0.13);
   --glow-b: rgb(14 116 144 / 0.07);
   --grid-line: rgb(9 9 11 / 0.05);
+
+  /* How long the light/dark cross-fade runs. Paired with SWAP_MS in
+     components/theme-transition.tsx — change both or the attribute driving the
+     fade is pulled before it finishes and the colours jump at the end. */
+  --theme-swap: 1000ms;
 }
 
 .dark {
@@ -265,15 +270,20 @@
 }
 
 @utility reveal {
-  animation: reveal-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: reveal-up 950ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* The range, not the duration, is what you feel on a scroll-driven timeline:
+   the browser ignores `animation-duration` and maps progress onto the scroll
+   instead. Widening `cover` from 28% to 48% is what turns this from a flicker
+   at the edge of the viewport into a move you can actually watch. The duration
+   still matters as the fallback on browsers without view timelines. */
 @utility reveal-scroll {
-  animation: reveal-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: reveal-up 950ms cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @supports (animation-timeline: view()) {
     animation-timeline: view();
-    animation-range: entry 5% cover 28%;
+    animation-range: entry 2% cover 48%;
   }
 }
 
@@ -285,20 +295,20 @@
 }
 
 @utility slide-from-left {
-  animation: slide-in-left 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: slide-in-left 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @supports (animation-timeline: view()) {
     animation-timeline: view();
-    animation-range: entry 0% cover 35%;
+    animation-range: entry 0% cover 52%;
   }
 }
 
 @utility slide-from-right {
-  animation: slide-in-right 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: slide-in-right 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
 
   @supports (animation-timeline: view()) {
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 56%;
   }
 }
 
@@ -380,7 +390,15 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    white-space: nowrap;
+    text-align: center;
+    /* The label used to be `nowrap` with no width ceiling, so a long one simply
+       grew the button past its container: "Посмотреть платформу подробнее"
+       measured 394px inside a 390px phone and pushed a horizontal scrollbar
+       onto the whole page. Wrapping is the graceful failure — short labels are
+       unaffected because the button is still sized to its content, and
+       `min-height` means a second line grows the button instead of clipping. */
+    max-width: 100%;
+    padding-block: 0.5rem;
     transition: color 250ms ease-out;
   }
 
@@ -595,6 +613,89 @@
   }
 
   /* -------------------------------------------------------------------------
+     Pricing tiers.
+
+     Each plan owns its edges instead of being a cell in a hairline grid. The
+     grid treatment the rest of the site uses collapses on a phone: at one
+     column, a 1px gap over a border-coloured track renders three plans as one
+     slab with two faint rules through it, and the recommended tier — which was
+     flagged only from lg up — vanished entirely.
+
+     Depth is tone, edge and a barely-there wash. No drop shadow: that is the
+     same rule the rest of the system follows, and it is why the panels still
+     read as instruments rather than as floating web cards.
+  ------------------------------------------------------------------------- */
+  .tier-panel {
+    --cut: 16px;
+    --edge: 1px;
+    position: relative;
+    isolation: isolate;
+    clip-path: polygon(
+      var(--cut) 0%,
+      100% 0%,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0% 100%,
+      0% var(--cut)
+    );
+  }
+
+  .tier-panel::before,
+  .tier-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: inherit;
+    transition: background-color 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tier-panel::before {
+    background-color: var(--border);
+    z-index: -2;
+  }
+
+  /* The wash falls from the chamfered corner, so the cut reads as where the
+     light enters rather than as a notch taken out of a rectangle. */
+  .tier-panel::after {
+    inset: var(--edge);
+    z-index: -1;
+    background-color: var(--surface);
+    background-image: radial-gradient(
+      ellipse 90% 55% at 0% 0%,
+      var(--band),
+      transparent 70%
+    );
+  }
+
+  .tier-panel:hover::before {
+    background-color: var(--border-strong);
+  }
+
+  /* The recommended plan. Accent is this system's active-state colour and
+     this is an active state: the plan the page steers you to, and the only
+     one whose CTA is filled. It stays a rim and a wash. Never a fill — that
+     would put the accent behind body copy and turn a state into decoration. */
+  .tier-panel[data-featured]::before {
+    background-image: linear-gradient(
+      155deg,
+      var(--accent) 0%,
+      var(--border-strong) 42%,
+      var(--border) 100%
+    );
+  }
+
+  .tier-panel[data-featured]::after {
+    background-image:
+      radial-gradient(
+        ellipse 85% 45% at 50% 0%,
+        var(--accent-subtle),
+        transparent 72%
+      ),
+      radial-gradient(ellipse 90% 55% at 0% 0%, var(--band), transparent 70%);
+  }
+
+  /* -------------------------------------------------------------------------
      Form surfaces get the same chamfer so inputs belong to the same system.
   ------------------------------------------------------------------------- */
   .tech-field {
@@ -684,7 +785,7 @@
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -699,7 +800,7 @@
 @keyframes slide-in-left {
   from {
     opacity: 0;
-    transform: translateX(-7%);
+    transform: translateX(-12%);
   }
   to {
     opacity: 1;
@@ -710,7 +811,7 @@
 @keyframes slide-in-right {
   from {
     opacity: 0;
-    transform: translateX(14%);
+    transform: translateX(22%);
   }
   to {
     opacity: 1;
@@ -744,6 +845,36 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Theme cross-fade.
+
+   Scoped to `[data-theme-swap]`, which ThemeTransition puts on <html> only
+   while a swap is running. A permanent colour transition would be far worse
+   than the hard flip it replaces: every hover and focus state on the site
+   would inherit it and take a second to settle.
+
+   `!important` is what makes the page move as one piece — without it every
+   element carrying its own `transition-colors` would run at its own duration
+   and the fade would arrive in waves. It is safe here precisely because the
+   selector cannot match outside the swap window.
+
+   Guarded by `no-preference` rather than left to the reduce block below: this
+   rule is more specific, so with both marked important it would otherwise win
+   and reduced-motion users would still get the fade. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-theme-swap],
+  [data-theme-swap] *,
+  [data-theme-swap] *::before,
+  [data-theme-swap] *::after {
+    transition:
+      background-color var(--theme-swap) cubic-bezier(0.4, 0, 0.2, 1),
+      border-color var(--theme-swap) cubic-bezier(0.4, 0, 0.2, 1),
+      color var(--theme-swap) cubic-bezier(0.4, 0, 0.2, 1),
+      fill var(--theme-swap) cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow var(--theme-swap) cubic-bezier(0.4, 0, 0.2, 1),
+      opacity var(--theme-swap) cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 }
 

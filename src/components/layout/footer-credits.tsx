@@ -23,11 +23,16 @@ export function FooterCredits() {
           rel="noopener noreferrer nofollow"
           className="inline-block rounded-sm py-1 transition-opacity duration-300 hover:opacity-80"
         >
+          {/* Same problem as the CodeSite mark below: the artwork is white on
+              transparent, drawn for a dark footer, so on the light theme it
+              was white-on-near-white and effectively invisible. Invert on
+              light, leave alone on dark. */}
           <Image
             src={credits.webBond.logo}
             alt="WebBond"
             width={96}
             height={32}
+            className="invert dark:invert-0"
           />
         </a>
 

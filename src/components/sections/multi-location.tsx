@@ -19,8 +19,11 @@ export async function MultiLocation() {
       <Container>
         <SectionLabel id="05">{t('label')}</SectionLabel>
 
+        {/* The copy column animates, the laptop does not: it is `lg:sticky`,
+            and a transform on it would re-parent the sticky positioning
+            mid-scroll. */}
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
+          <div className="reveal-scroll">
             <h2 className="text-h1 font-bold">{t('title')}</h2>
             <p className="mt-5 text-body-lg text-text-muted">{t('intro')}</p>
 

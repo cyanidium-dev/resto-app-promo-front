@@ -51,7 +51,7 @@ export async function Modules({ limit }: { limit?: number } = {}) {
         {/* Photograph on the left, opposite the one in the problem section, so
             the two picture blocks on the way down the page do not read as the
             same layout twice. */}
-        <div className="mt-10 grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+        <div className="reveal-scroll mt-10 grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <ImageSlot
             src={photos.bakery}
             alt={t('imageAlt')}
@@ -64,7 +64,7 @@ export async function Modules({ limit }: { limit?: number } = {}) {
 
         {/* Three columns, not four: the homepage shows six of the eight, and a
             four-column track leaves two dead cells in the second row. */}
-        <ul className="mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="reveal-scroll mt-12 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => {
             const Icon = icons[index] ?? ClipboardCheck;
             return (
@@ -90,7 +90,7 @@ export async function Modules({ limit }: { limit?: number } = {}) {
           })}
         </ul>
 
-        <div className="mt-10">
+        <div className="reveal-scroll mt-10">
           <ButtonLink href="/platform" variant="secondary" size="lg">
             {t('cta')}
             <ArrowRight className="size-4" aria-hidden />

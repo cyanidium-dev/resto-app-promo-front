@@ -32,7 +32,7 @@ export async function Architecture() {
 
         <div className="mt-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Diagram */}
-          <ol className="order-2 lg:order-1">
+          <ol className="slide-from-left order-2 lg:order-1">
             {nodes.map((node, index) => {
               const Icon = icons[index] ?? Store;
               return (
@@ -68,7 +68,7 @@ export async function Architecture() {
           </ol>
 
           {/* Copy */}
-          <div className="order-1 lg:order-2">
+          <div className="reveal-scroll order-1 lg:order-2">
             <h2 className="text-h1 font-bold">{t('title')}</h2>
             <p className="mt-5 text-body-lg text-text-muted">{t('intro')}</p>
 

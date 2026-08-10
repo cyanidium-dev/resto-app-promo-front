@@ -81,24 +81,25 @@ export async function PricingTiers({
           {lead ? t('label') : t('tiersLabel')}
         </SectionLabel>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+        <div className="reveal-scroll mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
           <Heading className="text-h1 font-bold">
             {lead ? t('title') : t('tiersTitle')}
           </Heading>
           <p className="text-body-lg text-text-muted lg:pt-2">{t('intro')}</p>
         </div>
 
-        <ul className="mt-14 grid gap-px border border-border bg-border lg:grid-cols-3">
+        {/* Separate panels with real gaps, not a hairline grid. One column on a
+            phone turned that grid into a single slab: the plans lost their
+            edges and the recommended one lost its flag with them. */}
+        <ul className="reveal-scroll mt-14 grid gap-5 lg:grid-cols-3">
           {tiers.map((tier, index) => {
             const featured = index === 1;
 
             return (
               <li
                 key={tier.id}
-                className={cn(
-                  'flex flex-col bg-bg p-7 md:p-8',
-                  featured && 'lg:bg-band',
-                )}
+                data-featured={featured || undefined}
+                className="tier-panel flex flex-col p-7 md:p-8"
               >
                 <div className="flex items-baseline justify-between gap-3">
                   <h3 className="font-mono text-label uppercase text-text-subtle">
@@ -118,7 +119,7 @@ export async function PricingTiers({
                 {/* Tabular figures keep the three prices on the same optical
                     baseline; without them the currency glyph drifts. */}
                 <p className="mt-7 flex items-baseline gap-1.5">
-                  <span className="font-display text-[2.5rem] leading-none font-bold tracking-tight">
+                  <span className="font-display text-[2.75rem] leading-none font-bold tracking-tight tabular-nums">
                     {monthlyPerLocation[tier.id]}
                   </span>
                   <span className="text-h3 text-text-muted">{currency}</span>
@@ -163,7 +164,7 @@ export async function PricingTiers({
           })}
         </ul>
 
-        <p className="mt-8 max-w-2xl border-l-2 border-text pl-5 text-body-lg text-text-muted">
+        <p className="reveal-scroll mt-8 max-w-2xl border-l-2 border-text pl-5 text-body-lg text-text-muted">
           {t('setupNote', { price: `${setupFrom} ${currency}` })}
         </p>
       </Container>

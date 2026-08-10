@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeTransition } from '@/components/theme-transition';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { FloatingActions } from '@/components/layout/floating-actions';
@@ -110,12 +111,11 @@ export default async function LocaleLayout({
             weaker version of the design. System detection is off rather than
             merely overridden, so the first paint is deterministic — the
             toggle still switches, and the choice is remembered. */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
+        {/* `disableTransitionOnChange` is deliberately absent: ThemeTransition
+            paints the swap instead, gating a colour transition behind an
+            attribute that only exists while the theme is actually changing. */}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ThemeTransition />
           <NextIntlClientProvider>
             <a
               href="#main"
