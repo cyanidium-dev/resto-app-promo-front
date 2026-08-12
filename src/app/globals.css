@@ -32,6 +32,15 @@
   --accent-hover: #0b5c73;
   --accent-subtle: rgb(14 116 144 / 0.08);
 
+  /* Second accent, taken from the logo's blue end (#0060c0 is its most common
+     opaque pixel). The lockup runs blue into cyan, so the pair is the brand's
+     own gradient rather than an invented palette. Division of labour: cyan
+     stays the action colour — CTAs, active states — and blue marks structure,
+     so a blue element never reads as something to click. */
+  --accent-2: #0060c0;
+  --accent-2-hover: #004f9e;
+  --accent-2-subtle: rgb(0 96 192 / 0.08);
+
   --ok: #16a34a;
   --warning: #d97706;
   --violation: #dc2626;
@@ -40,7 +49,7 @@
      cold-chain cyan and dialled down — a food-safety site must not read as
      gaming hardware. */
   --glow-a: rgb(14 116 144 / 0.13);
-  --glow-b: rgb(14 116 144 / 0.07);
+  --glow-b: rgb(0 96 192 / 0.07);
   --grid-line: rgb(9 9 11 / 0.05);
 
   /* How long the light/dark cross-fade runs. Paired with SWAP_MS in
@@ -67,6 +76,12 @@
   --accent-hover: #67e8f9;
   --accent-subtle: rgb(34 211 238 / 0.1);
 
+  /* The logo blue lifted for a near-black page: #0060c0 measures 3.3:1 here,
+     which is legible as a shape and not as a word. */
+  --accent-2: #4da3ff;
+  --accent-2-hover: #7cbcff;
+  --accent-2-subtle: rgb(77 163 255 / 0.12);
+
   --ok: #4ade80;
   --warning: #fbbf24;
   --violation: #f87171;
@@ -91,6 +106,10 @@
   --color-accent-fg: var(--accent-fg);
   --color-accent-hover: var(--accent-hover);
   --color-accent-subtle: var(--accent-subtle);
+
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-hover: var(--accent-2-hover);
+  --color-accent-2-subtle: var(--accent-2-subtle);
 
   --color-ok: var(--ok);
   --color-warning: var(--warning);
@@ -676,11 +695,13 @@
      this is an active state: the plan the page steers you to, and the only
      one whose CTA is filled. It stays a rim and a wash. Never a fill — that
      would put the accent behind body copy and turn a state into decoration. */
+  /* Blue into cyan, which is the gradient the logo itself runs. */
   .tier-panel[data-featured]::before {
     background-image: linear-gradient(
       155deg,
-      var(--accent) 0%,
-      var(--border-strong) 42%,
+      var(--accent-2) 0%,
+      var(--accent) 22%,
+      var(--border-strong) 48%,
       var(--border) 100%
     );
   }

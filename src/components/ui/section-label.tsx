@@ -2,37 +2,32 @@ import { cn } from '@/lib/utils';
 
 /**
  * The site's connective tissue: every section is labelled like a readout on an
- * instrument panel. Deliberately monochrome — the accent colour is reserved for
- * CTAs and active states, so it never appears here.
+ * instrument panel.
+ *
+ * Set in the second accent, the logo's blue. These labels are the clearest case
+ * of what that colour is for — they name the structure of the page and are not
+ * interactive, so they carry brand colour without ever being mistaken for
+ * something to click. Cyan stays with the buttons.
+ *
+ * `tone` is gone: it existed for labels sitting on photography, back when the
+ * hero and the closing CTA were dark in both themes and hard-coded their own
+ * light values. Both scrims follow the theme now, so the tokens hold.
  */
 export function SectionLabel({
   id,
   children,
   className,
-  tone = 'default',
 }: {
   id: string;
   children: React.ReactNode;
   className?: string;
-  /** `onImage` for sections sitting on photography, where tokens lose contrast. */
-  tone?: 'default' | 'onImage';
 }) {
-  const onImage = tone === 'onImage';
-
   return (
     <div className={cn('flex items-center gap-4', className)}>
-      <span
-        className={cn(
-          'font-mono text-label uppercase whitespace-nowrap',
-          onImage ? 'text-[#9aa0a6]' : 'text-text-subtle',
-        )}
-      >
+      <span className="font-mono text-label whitespace-nowrap text-accent-2 uppercase">
         [ {id} / {children} ]
       </span>
-      <span
-        aria-hidden
-        className={cn('h-px flex-1', onImage ? 'bg-white/15' : 'bg-border')}
-      />
+      <span aria-hidden className="h-px flex-1 bg-border" />
     </div>
   );
 }

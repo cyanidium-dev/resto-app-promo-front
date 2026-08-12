@@ -54,7 +54,7 @@ export async function FinalCta({ labelId }: { labelId: string }) {
           <div className="reveal-scroll">
             <h2 className="text-h1 font-bold text-text">{t('title')}</h2>
             <p className="mt-5 text-body-lg text-text-muted">{t('intro')}</p>
-            <p className="mt-10 border-t border-border pt-6 font-mono text-[0.9375rem] text-accent">
+            <p className="mt-10 border-t border-border pt-6 font-mono text-[0.9375rem] text-accent-2">
               {t('tagline')}
             </p>
           </div>

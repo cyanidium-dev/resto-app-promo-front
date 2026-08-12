@@ -57,9 +57,7 @@ export async function SiteFooter() {
             content does not fit half a phone width. */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:gap-y-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div className="col-span-2 lg:col-span-1">
-            {/* Full lockup here — the footer has the room for the tagline that
-                the header does not. */}
-            <Logo variant="full" size="lg" />
+            <Logo size="lg" />
             <p className="mt-4 max-w-xs font-mono text-[0.8125rem] leading-relaxed text-text-muted">
               {t('tagline')}
             </p>

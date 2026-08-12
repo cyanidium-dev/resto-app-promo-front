@@ -83,7 +83,9 @@ export async function Hero() {
             the floor for short screens — keep it small or the copy stops
             fitting inside one viewport on a 1366×768 laptop. */}
         <Container className="pt-20 pb-16 md:pt-28 md:pb-24 lg:py-8">
-          <p className="font-mono text-label uppercase text-accent">
+          {/* Blue, not cyan: the eyebrow labels the page, it is not something
+              to click, and the CTA sitting a few lines below owns the cyan. */}
+          <p className="font-mono text-label uppercase text-accent-2">
             {t('eyebrow')}
           </p>
 
@@ -121,7 +123,7 @@ export async function Hero() {
                 key={benefit}
                 className="bg-bg/70 px-4 pt-4 pb-5 backdrop-blur-sm"
               >
-                <span className="font-mono text-label text-accent">
+                <span className="font-mono text-label text-accent-2">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <p className="mt-2 text-[0.9375rem] leading-snug text-text">

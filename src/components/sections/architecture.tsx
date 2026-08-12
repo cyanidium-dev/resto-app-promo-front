@@ -43,14 +43,14 @@ export async function Architecture() {
                       className="relative ml-7 h-10 w-px overflow-hidden bg-border"
                     >
                       <span
-                        className="signal-pulse absolute inset-x-0 top-0 h-6 bg-accent"
+                        className="signal-pulse absolute inset-x-0 top-0 h-6 bg-accent-2"
                         style={{ animationDelay: `${index * 0.45}s` }}
                       />
                     </div>
                   )}
 
                   <div className="panel-chamfer flex items-start gap-4 p-5">
-                    <span className="mt-0.5 grid size-9 shrink-0 place-items-center border border-border text-accent">
+                    <span className="mt-0.5 grid size-9 shrink-0 place-items-center border border-border text-accent-2">
                       <Icon className="size-4" strokeWidth={1.75} aria-hidden />
                     </span>
                     <div>
